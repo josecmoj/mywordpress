@@ -14,24 +14,59 @@
  * @package WordPress
  */
 
+// Define the HOME and SITEURL variables to be dynamic.
+define('WP_HOME', 'http://'.$_SERVER['HTTP_HOST']);
+define('WP_SITEURL', 'http://'.$_SERVER['HTTP_HOST']);
+
+// Environment check
+switch ( $_SERVER['SERVER_NAME'] ) {
+	// Staging.
+	case 'STAGING SITE SERVER NAME: website.dev.maikeldaloo.com':
+		$db_host = '';
+		$db_user = '';
+		$db_pass = '';
+		$db_name = '';
+		break;
+	
+	// Production.
+	case 'PRODUCTION SITE SERVER NAME: website.com':
+		$db_host = '';
+		$db_user = '';
+		$db_pass = '';
+		$db_name = '';
+		break;
+	
+	// Local.
+	case 'LOCAL SERVER NAME: website.dev':
+		$db_host = '';
+		$db_user = '';
+		$db_pass = '';
+		$db_name = '';
+		break;
+	
+	default:
+		die('Undefined environment: Please check the main config file.');
+}
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'database_name_here');
+define('DB_NAME', $db_name);
 
 /** MySQL database username */
-define('DB_USER', 'username_here');
+define('DB_USER', $db_user);
 
 /** MySQL database password */
-define('DB_PASSWORD', 'password_here');
+define('DB_PASSWORD', $db_pass);
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', $db_host);
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
+
 
 /**#@+
  * Authentication Unique Keys and Salts.
