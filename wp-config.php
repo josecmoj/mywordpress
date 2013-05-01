@@ -96,6 +96,10 @@ define('SECURE_AUTH_SALT', 'put your unique phrase here');
 define('LOGGED_IN_SALT',   'put your unique phrase here');
 define('NONCE_SALT',       'put your unique phrase here');
 
+if ( AUTH_KEY == 'put your unique phrase here' ) {
+	die('Please update your secret keys.<br><a href="https://api.wordpress.org/secret-key/1.1/salt/" target="_blank">Click here</a>');
+}
+
 /**#@-*/
 
 /**
