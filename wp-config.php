@@ -70,10 +70,7 @@ $my_config = array(
 	'WP_DEBUG'               => false,
 	
 	// Limit the post/page revisions to reduce DB bloat.
-	'WP_POST_REVISIONS'      => 5,
-	
-	// Helpers
-	'DS'                     => DIRECTORY_SEPARATOR
+	'WP_POST_REVISIONS'      => 5
 );
 
 // Define all the configuration items.

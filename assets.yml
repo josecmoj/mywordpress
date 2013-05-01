@@ -1,0 +1,6 @@
+gzip_assets: off
+javascript_compressor: uglifier
+
+javascripts:
+  wp-content/themes/sparky/js/main.min:
+    - wp-content/themes/sparky/js/main.js
