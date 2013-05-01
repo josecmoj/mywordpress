@@ -14,9 +14,6 @@
  * @package WordPress
  */
 
-// Define the HOME and SITEURL variables to be dynamic.
-define('WP_HOME', 'http://'.$_SERVER['HTTP_HOST']);
-define('WP_SITEURL', 'http://'.$_SERVER['HTTP_HOST']);
 
 // Environment check
 switch ( $_SERVER['SERVER_NAME'] ) {
@@ -48,25 +45,38 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 		die('Undefined environment: Please check the main config file.');
 }
 
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define('DB_NAME', $db_name);
+/**
+ * Add all the main configuration items so they can be looped through and set
+ * in one sexy loop.
+ */
+$my_config = array(
+	// Define the HOME and SITEURL variables to be dynamic.
+	'WP_HOME'                => 'http://' . $_SERVER['HTTP_HOST'],
+	'WP_SITEURL'             => 'http://' . $_SERVER['HTTP_HOST'],
+	
+	// Do not allow theme editing from WP admin, or plugins/themes to be updated/installed.
+	'DISALLOW_FILE_EDIT'     => true,
+	// 'DISALLOW_FILE_MODS'     => true,
+	
+	// Database settings.
+	'DB_NAME'                => $db_name,
+	'DB_USER'                => $db_user,
+	'DB_PASSWORD'            => $db_pass,
+	'DB_HOST'                => $db_host,
+	'DB_CHARSET'             => 'utf8',
+	'DB_COLLATE'             => '',
+	
+	// WordPress Debug mode.
+	'WP_DEBUG'               => false,
+	
+	// Limit the post/page revisions to reduce DB bloat.
+	'WP_POST_REVISIONS'      => 5,
+);
 
-/** MySQL database username */
-define('DB_USER', $db_user);
-
-/** MySQL database password */
-define('DB_PASSWORD', $db_pass);
-
-/** MySQL hostname */
-define('DB_HOST', $db_host);
-
-/** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
-
-/** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
-
+// Define all the configuration items.
+foreach ( $my_config as $config_setting => $config_value ) {
+	define( $config_setting , $config_value );
+}
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -95,25 +105,6 @@ define('NONCE_SALT',       'put your unique phrase here');
  * prefix. Only numbers, letters, and underscores please!
  */
 $table_prefix  = 'wp_';
-
-/**
- * WordPress Localized Language, defaults to English.
- *
- * Change this to localize WordPress. A corresponding MO file for the chosen
- * language must be installed to wp-content/languages. For example, install
- * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
- * language support.
- */
-define('WPLANG', '');
-
-/**
- * For developers: WordPress debugging mode.
- *
- * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- */
-define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
 
