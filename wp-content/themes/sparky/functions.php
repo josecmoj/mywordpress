@@ -39,6 +39,7 @@ require $includes_dir . 'sparky.class.php';
 | Store config variables here and they'll be accessible everywhere within
 | the theme.
 | 
+| WARNING:
 | These directory config settings should not be removed (dir.*).
 | They're used throughout the theme and there will be some errors if
 | they're removed or modified.
@@ -50,9 +51,6 @@ Config::set( 'dir.theme' , $theme_dir );
 Config::set( 'dir.css' , $theme_dir . 'css/' );
 Config::set( 'dir.img' , $theme_dir . 'img/' );
 Config::set( 'dir.js' , $theme_dir . 'js/' );
-
-Config::set( 'site.name' , 'Parcway Homes' );
-Config::set( 'site.slogan' , 'My website slogan' );
 
 
 

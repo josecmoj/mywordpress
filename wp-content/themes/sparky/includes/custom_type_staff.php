@@ -46,6 +46,5 @@ function custom_type_staff()
 	
 } 
 
-	// adding the function to the Wordpress init
-	add_action( 'init', 'custom_type_staff');
-	
+// adding the function to the Wordpress init
+add_action( 'init', 'custom_type_staff');

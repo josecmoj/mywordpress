@@ -1,5 +1,17 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Sparky - Main theme class
+|--------------------------------------------------------------------------
+| 
+| This class will provide simplified methods to work with some of the
+| functionality that WordPress provides.
+| 
+| The aim of this class is to act as a helper.
+| 
+*/
+
 class Sparky {
 	
 	/**
