@@ -23,10 +23,12 @@ class Sparky {
 	 */
 	public static function add_custom_image_sizes( $sizes )
 	{
+		if ( empty($sizes) ) return false;
+		
 		foreach ( $sizes as $name => $size ) {
 			list( $w , $h ) = explode( 'x' , $size );
 			add_image_size( $name , $w , $h , true );
 		}
 	}
-	
 }
+
