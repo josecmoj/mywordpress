@@ -53,6 +53,9 @@ Config::set( 'dir.img' , $theme_dir . 'img/' );
 Config::set( 'dir.js' , $theme_dir . 'js/' );
 
 
+// Initialise the Sparky class. It enables a few necessary features.
+Sparky::init();
+
 
 // Set custom image sizes for WordPress to resize when uploading new images.
 // Sparky::add_custom_image_sizes(array(
