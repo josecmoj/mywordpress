@@ -8,7 +8,7 @@
 | This class will provide simplified methods to work with some of the
 | functionality that WordPress provides.
 | 
-| The aim of this class is to act as a helper.
+| The aim of this class is to act as a helper, so feel free to modify it.
 | 
 */
 
