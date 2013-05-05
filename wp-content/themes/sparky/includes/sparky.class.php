@@ -105,20 +105,40 @@ class Sparky {
 	
 	
 	/**
+	 * Retrieves the source for the feature image.
+	 *
+	 * @param  string $size
+	 * @param  mixed  $post_id passing null will retrieve the current post's ID.
+	 *
+	 * @return mixed           returns null or a string
+	 */
+	public static function feature_image( $size = 'full' , $post_id = null )
+	{
+		if ( !has_post_thumbnail() ) return null;
+		
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ) , $size );
+		
+		return $image[0];
+	}
+	
+	
+	
+	/**
 	 * Return a list of recent posts.
 	 * Returns false if none are found.
 	 *
 	 * @param  integer $count
+	 * @param  string  $type
 	 *
 	 * @return mixed
 	 */
-	public static function recent_posts( $count = 5 )
+	public static function recent_posts( $count = 5 , $type = 'post' )
 	{
 		$args = array(
 			'numberposts' => $count,
 			'orderby' => 'post_date',
 			'order' => 'DESC',
-			'post_type' => 'post',
+			'post_type' => $type,
 			'post_status' => 'publish'
 		);
 		
