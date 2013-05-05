@@ -28,6 +28,27 @@ class Sparky {
 	
 	
 	/**
+	 * Outputs a string and allows you to perform a find and replace for special
+	 * keywords. For example:
+	 * 		$output = '<h1>{title}</h1>';
+	 * 		$replacements = array( '{title}' => 'My Title' );
+	 * 		Sparky::render( $output , $replacements );
+	 *
+	 * @param  string $output
+	 * @param  array  $replacements
+	 *
+	 * @return void
+	 */
+	public static function render( $output , $replacements = array() ) {
+		$find = array_keys( $replacements );
+		$replace = array_values( $replacements );
+		
+		echo str_replace( $find , $replace , $output );
+	}
+	
+	
+	
+	/**
 	 * Adds custom image sizes so WordPress is aware and will resize into
 	 * those sizes when an image is uploaded.
 	 *
