@@ -54,6 +54,19 @@ class Sparky {
 	
 	
 	/**
+	 * Outputs a generic title.
+	 * Edit this as to your liking.
+	 *
+	 * @return void
+	 */
+	public static function title() {
+		echo is_front_page() ? 'Home | ' : wp_title( '|' , false , 'right' );
+		bloginfo('name');
+	}
+	
+	
+	
+	/**
 	 * Adds custom image sizes so WordPress is aware and will resize into
 	 * those sizes when an image is uploaded.
 	 *
@@ -87,5 +100,33 @@ class Sparky {
 		);
 		
 		return wp_nav_menu( $args );
+	}
+	
+	
+	
+	/**
+	 * Return a list of recent posts.
+	 * Returns false if none are found.
+	 *
+	 * @param  integer $count
+	 *
+	 * @return mixed
+	 */
+	public static function recent_posts( $count = 5 )
+	{
+		$args = array(
+			'numberposts' => $count,
+			'orderby' => 'post_date',
+			'order' => 'DESC',
+			'post_type' => 'post',
+			'post_status' => 'publish'
+		);
+		
+		$recent_posts = wp_get_recent_posts( $args );
+		
+		// Return false if no posts are found.
+		if ( !count($recent_posts) ) return false;
+		
+		return $recent_posts;
 	}
 }
