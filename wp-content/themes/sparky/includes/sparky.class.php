@@ -28,22 +28,27 @@ class Sparky {
 	
 	
 	/**
-	 * Outputs a string and allows you to perform a find and replace for special
+	 * Outputs/returns a string and allows you to perform a find and replace for special
 	 * keywords. For example:
 	 * 		$output = '<h1>{title}</h1>';
 	 * 		$replacements = array( '{title}' => 'My Title' );
 	 * 		Sparky::render( $output , $replacements );
 	 *
-	 * @param  string $output
-	 * @param  array  $replacements
+	 * @param  string  $output
+	 * @param  array   $replacements
+	 * @param  boolean $echo
 	 *
 	 * @return void
 	 */
-	public static function render( $output , $replacements = array() ) {
+	public static function render( $output , $replacements = array() , $echo = true ) {
 		$find = array_keys( $replacements );
 		$replace = array_values( $replacements );
 		
-		echo str_replace( $find , $replace , $output );
+		$html = str_replace( $find , $replace , $output );
+		
+		if ( !$echo ) return $html;
+		
+		echo $html;
 	}
 	
 	
