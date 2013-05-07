@@ -16,4 +16,4 @@
 	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<link rel="stylesheet" href="<?php echo css('main.css') ?>">
 </head>
-<body>
+<body <?php body_class(); ?>>
