@@ -34,8 +34,7 @@ gem install guard-livereload
 gem install guard-sass  
 ```
 
-And when you want to start working, all you need to do is run:  
-```guard```
+And when you want to start working, all you need to do is run: ```guard```
 
 
 [1]: https://github.com/guard/guard

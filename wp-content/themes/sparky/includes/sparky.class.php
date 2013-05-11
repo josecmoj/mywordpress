@@ -149,4 +149,37 @@ class Sparky {
 		
 		return $recent_posts;
 	}
+	
+	
+	
+	/**
+	 * Returns an array of pages.
+	 *
+	 * @param  mixed $child_of  'null' will retrieve the current page's ID
+	 *                          '0' will return all the top-level pages
+	 *                          '1' or more will retrieve the children of that page ID.
+	 *                          By default, it will return the current page's children.
+	 *                          
+	 *
+	 * @return array
+	 */
+	public static function pages( $child_of = null )
+	{
+		// If the child_of is specifically NULL, we will retrieve the current page's ID.
+		if ( is_null($child_of) ) {
+			$child_of = get_the_ID();
+		}
+		
+		$args = array(
+			'sort_order' => 'ASC',
+			'sort_column' => 'menu_order,post_title',
+			'hierarchical' => 1,
+			'child_of' => $child_of,
+			'parent' => -1,
+			'post_type' => 'page',
+			'post_status' => 'publish'
+		);
+		
+		return get_pages( $args );
+	}
 }
