@@ -50,7 +50,7 @@ switch ( $_SERVER['SERVER_NAME'] ) {
  * in one sexy loop.
  */
 $my_config = array(
-	// Define the HOME and SITEURL variables to be dynamic.
+	// Define the HOME and SITEURL constants to be dynamic.
 	'WP_HOME'                => 'http://' . $_SERVER['HTTP_HOST'],
 	'WP_SITEURL'             => 'http://' . $_SERVER['HTTP_HOST'],
 	
