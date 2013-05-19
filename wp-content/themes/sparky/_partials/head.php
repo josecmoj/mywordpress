@@ -10,6 +10,7 @@
 	<title><?php Sparky::title() ?></title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
+	<?php wp_head(); ?>
 	
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	
