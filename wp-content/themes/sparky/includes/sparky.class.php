@@ -38,7 +38,7 @@ class Sparky {
 	 * @param  array   $replacements
 	 * @param  boolean $echo
 	 *
-	 * @return void
+	 * @return mixed
 	 */
 	public static function render( $output , $replacements = array() , $echo = true ) {
 		$find = array_keys( $replacements );
@@ -114,7 +114,7 @@ class Sparky {
 	 */
 	public static function feature_image( $size = 'full' , $post_id = null )
 	{
-		if ( !has_post_thumbnail() ) return null;
+		if ( !has_post_thumbnail( $post_id ) ) return null;
 		
 		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ) , $size );
 		
@@ -159,7 +159,6 @@ class Sparky {
 	 *                          '0' will return all the top-level pages
 	 *                          '1' or more will retrieve the children of that page ID.
 	 *                          By default, it will return the current page's children.
-	 *                          
 	 *
 	 * @return array
 	 */
