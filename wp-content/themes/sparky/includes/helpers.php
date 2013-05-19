@@ -84,3 +84,17 @@ function css( $filename )
 {
 	return Config::get('dir.css') . $filename;
 }
+
+
+
+/**
+ * Determines if the current request is ajax or not.
+ *
+ * @return boolean
+ */
+function ajax_request()
+{
+	$req = $_SERVER['HTTP_X_REQUESTED_WITH'];
+	
+	return (!empty($req) && strtolower($req) == 'xmlhttprequest') ? true : false;
+}
