@@ -2,7 +2,7 @@
 <?php partial('header') ?>
 	
 	<section id="body">
-		<role id="content" role="main">
+		<div  id="content" role="main">
 			
 			<h1>Page not found!</h1>
 			<p>The page you're looking for does not exist, or has been moved.</p>
@@ -11,7 +11,7 @@
 				<p><?php get_search_form(); ?></p>
 			</section> <!-- end search section -->
 			
-		</role>
+		</div>
 		
 		<?php partial('sidebar') ?>
 		

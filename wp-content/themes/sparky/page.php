@@ -5,7 +5,7 @@
 	<?php partial('header') ?>
 	
 	<section id="body">
-		<role id="content" role="main">
+		<div id="content" role="main">
 			
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 				<section class="entry-content">
@@ -13,7 +13,7 @@
 				</section>
 			<?php endwhile; endif; ?>
 			
-		</role>
+		</div>
 		
 		<?php partial('sidebar') ?>
 		
