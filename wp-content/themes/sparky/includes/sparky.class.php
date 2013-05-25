@@ -40,7 +40,8 @@ class Sparky {
 	 *
 	 * @return mixed
 	 */
-	public static function render( $output , $replacements = array() , $echo = true ) {
+	public static function render( $output , $replacements = array() , $echo = true )
+	{
 		$find = array_keys( $replacements );
 		$replace = array_values( $replacements );
 		
@@ -56,12 +57,39 @@ class Sparky {
 	/**
 	 * Outputs a generic title.
 	 * Edit this as to your liking.
-	 *
-	 * @return void
 	 */
-	public static function title() {
+	public static function title()
+	{
 		echo is_front_page() ? 'Home | ' : wp_title( '|' , false , 'right' );
 		bloginfo('name');
+	}
+	
+	
+	
+	/**
+	 * Outputs a generic description.both
+	 * Edit this as to your liking.
+	 */
+	public static function description()
+	{
+		// Maximum length of the meta description. Recommended: 155 characters.
+		$max_length = 155;
+		
+		$description = is_single() ? single_post_title( '' , false ) : get_bloginfo('name');
+		
+		// If a tagline/description has been set for the blog, we'll append it to our description.
+		$tagline = get_bloginfo('description');
+		if ( $tagline ) {
+			$description .= " - $tagline";
+		}
+		
+		// Keep the length of the description below the recommended maximum.
+		if ( strlen($description) > $max_length ) {
+			echo substr( $description , 0 , $max_length-3 ) . '...';
+		}
+		else {
+			echo $description;
+		}
 	}
 	
 	

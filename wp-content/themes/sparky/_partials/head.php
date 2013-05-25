@@ -8,7 +8,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php Sparky::title() ?></title>
-	<meta name="description" content="">
+	<meta name="description" content="<?php Sparky::description() ?>">
 	<meta name="viewport" content="width=device-width">
 	<?php wp_head(); ?>
 	
