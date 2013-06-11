@@ -34,6 +34,7 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 		break;
 	
 	// Local.
+	case 'localhost':
 	case 'LOCAL SERVER NAME: website.dev':
 		$db_host = '';
 		$db_user = '';
