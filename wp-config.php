@@ -43,7 +43,7 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 		break;
 	
 	default:
-		throw new Exception( 'Undefined environment: Please check the main config file.' );
+		die( 'Undefined environment: Please check the main config file.' );
 }
 
 /**
@@ -98,7 +98,7 @@ define('LOGGED_IN_SALT',   'put your unique phrase here');
 define('NONCE_SALT',       'put your unique phrase here');
 
 if ( !AUTH_KEY || AUTH_KEY == 'put your unique phrase here' ) {
-	throw new Exception( 'Please update your secret keys.<br><a href="https://api.wordpress.org/secret-key/1.1/salt/" target="_blank">Click here</a>' );
+	die( 'Please update your secret keys.<br><a href="https://api.wordpress.org/secret-key/1.1/salt/" target="_blank">Click here</a>' );
 }
 
 /**#@-*/
