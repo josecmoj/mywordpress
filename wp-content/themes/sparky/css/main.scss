@@ -3,7 +3,11 @@
 // All the files should be in the 'scss' directory.
 // --------------------------------------------------------------------------------
 
-@import 'scss/bourbon/bourbon';
-@import 'scss/mixins';
-@import 'scss/normalize';
-@import 'scss/base';
+@import 'source/bourbon/bourbon';
+@import 'source/neat/neat';
+
+@import 'source/config';
+@import 'source/mixins';
+@import 'source/normalize';
+
+@import 'source/base';
