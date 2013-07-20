@@ -23,6 +23,9 @@ class Sparky {
 	{
 		add_theme_support( 'menus' );
 		add_theme_support( 'post-thumbnails' );
+		
+		// Disable admin bar.
+		add_filter( 'show_admin_bar' , function() { return false; } );
 	}
 	
 	
