@@ -212,4 +212,45 @@ class Sparky {
 		
 		return get_pages( $args );
 	}
+	
+	
+	
+	/**
+	 * Disable menu items for the admin section.
+	 *
+	 * @param  array $items Array of items to disable/hide.
+	 *
+	 * @return void
+	 */
+	public static function disable_admin_menu_items( $items )
+	{
+		if ( !is_array( $items ) || empty( $items ) ) return false;
+		
+		add_action( 'admin_menu' , function() use ( $items )
+		{
+			global $menu;
+			end ($menu);
+			
+			// Store all the menu items that are to be disabled/hidden.
+			$restricted = [];
+			
+			foreach ( $items as $item )
+			{
+				$restricted[] = __( $item );
+			}
+			
+			while ( prev( $menu ) )
+			{
+				$value = explode( ' ' , $menu[ key($menu) ][ 0 ] );
+				
+				$value = is_null( $value[0] ) ? "" : $value[0];
+				
+				if ( in_array( $value , $restricted ) )
+				{
+					unset( $menu[ key($menu) ] );
+				}
+			}
+		});
+	}
+	
 }
