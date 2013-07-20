@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -33,14 +34,38 @@ function get( $value , $default = null )
 /**
  * Outputs the content of a file that is located in the _partials directory.
  *
- * @param  string $file      File name without the extension.
- * @param  string $extension Optionally pass a file extension.
+ * @param  string  $file Name of the file stored in the _partials directory. Extension is optional.
+ * @param  array   $vars List of variables to pass to the view.
+ * @param  boolean $echo Whether to output the content or return it.
  *
- * @return void
+ * @return mixed         String or void.
  */
-function partial( $file , $extension = 'php' )
+function partial( $file , $vars = null , $echo = true )
 {
+	// If variables are provided, make them available for the required file.
+	if ( is_array( $vars ) && !empty( $vars ) )
+	{
+		extract( $vars );
+	}
+	
+	// Get extension if it's set, or default to php.
+	$extension = pathinfo( $filename , PATHINFO_EXTENSION );
+	if ( !$extension ) $extension = 'php';
+	
+	// Start the output buffer.
+	ob_start();
+	
+	// Include our file.
 	require Config::get('dir.partials') . $file . '.' . $extension;
+	
+	// Let's get what the output buffer has rendered.
+	$content = ob_get_clean();
+	
+	// If we're not echoing the data, lets return it.
+	if ( !$echo ) return $content;
+	
+	// Output the data to the view.
+	echo $content;
 }
 
 
@@ -96,5 +121,5 @@ function ajax_request()
 {
 	$req = $_SERVER['HTTP_X_REQUESTED_WITH'];
 	
-	return (!empty($req) && strtolower($req) == 'xmlhttprequest') ? true : false;
+	return ( !empty( $req ) && strtolower( $req ) == 'xmlhttprequest' ) ? true : false;
 }

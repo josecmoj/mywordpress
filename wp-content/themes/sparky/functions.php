@@ -23,9 +23,9 @@
 | 
 */
 
-$current_dir    = dirname( __FILE__ ) . '/';
+$current_dir  = dirname( __FILE__ ) . '/';
 $includes_dir = $current_dir . 'includes/';
-$theme_dir = get_stylesheet_directory_uri() . '/'; // This is mainly for the img/css/js helper functions.
+$theme_dir    = get_stylesheet_directory_uri() . '/'; // This is mainly for the img/css/js helper functions.
 
 require $includes_dir . 'config.class.php';
 require $includes_dir . 'helpers.php';
