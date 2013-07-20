@@ -120,15 +120,18 @@ class Sparky {
 	 * Returns a menu based on what you have named it in the WP Admin section.
 	 *
 	 * @param  string $name
+	 * @param  array  $args Arguments to merge with the defaults.
 	 *
 	 * @return void string
 	 */
-	public static function menu( $name )
+	public static function menu( $name , $args = array() )
 	{
-		$args = array(
+		$default_args = array(
 			'echo' => false,
 			'menu' => $name
 		);
+		
+		$args = array_merge( $default_args , $args );
 		
 		return wp_nav_menu( $args );
 	}
