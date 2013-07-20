@@ -55,8 +55,11 @@ $my_config = array(
 	'WP_HOME'                => 'http://' . $_SERVER['HTTP_HOST'],
 	'WP_SITEURL'             => 'http://' . $_SERVER['HTTP_HOST'],
 	
-	// Do not allow theme editing from WP admin, or plugins/themes to be updated/installed.
+
+	// Do not allow theme editing from WP admin.
 	'DISALLOW_FILE_EDIT'     => true,
+	
+	// Do not allow plugins/themes to be updated/installed.
 	// 'DISALLOW_FILE_MODS'     => true,
 	
 	// Database settings.
