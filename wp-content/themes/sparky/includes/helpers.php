@@ -1,4 +1,3 @@
-
 <?php
 
 /*
@@ -40,20 +39,18 @@ function get( $value , $default = null )
  *
  * @return mixed         String or void.
  */
-function partial( $file , $vars = null , $echo = true )
+function partial( $file , $vars = array() , $echo = true )
 {
-	// If variables are provided, make them available for the required file.
-	if ( is_array( $vars ) && !empty( $vars ) )
-	{
-		extract( $vars );
-	}
-	
 	// Get extension if it's set, or default to php.
-	$extension = pathinfo( $filename , PATHINFO_EXTENSION );
+	$extension = pathinfo( $file , PATHINFO_EXTENSION );
 	if ( !$extension ) $extension = 'php';
+	
 	
 	// Start the output buffer.
 	ob_start();
+	
+	// Make the variables available for the required file.
+	extract( $vars );
 	
 	// Include our file.
 	require Config::get('dir.partials') . $file . '.' . $extension;
@@ -122,4 +119,40 @@ function ajax_request()
 	$req = $_SERVER['HTTP_X_REQUESTED_WITH'];
 	
 	return ( !empty( $req ) && strtolower( $req ) == 'xmlhttprequest' ) ? true : false;
+}
+
+
+
+/**
+ * Redirect to another page. It's best to perform redirects before
+ * anything has been rendered.
+ *
+ * @param  string $location
+ *
+ * @return void
+ */
+function redirect( $location )
+{
+	header( "location: $location" );
+	exit;
+}
+
+
+
+/**
+ * A very simple HTML email method.
+ *
+ * @param  string $to
+ * @param  string $subject
+ * @param  string $message
+ *
+ * @return boolean
+ */
+function send_email( $to , $subject , $message ) {
+	$headers  = "From: {$to}\r\n";
+	$headers .= "Reply-To: {$to}\r\n";
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=utf-8\r\n";
+	
+	return @mail( $to , $subject , $message , $headers );
 }
