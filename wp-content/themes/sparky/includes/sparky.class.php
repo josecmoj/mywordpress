@@ -235,7 +235,7 @@ class Sparky {
 			end ($menu);
 			
 			// Store all the menu items that are to be disabled/hidden.
-			$restricted = [];
+			$restricted = array();
 			
 			foreach ( $items as $item )
 			{
