@@ -186,7 +186,7 @@ function starts_with( $haystack , $needles )
  * @param string|array $needles
  * @return bool
  */
-public static function endsWith( $haystack , $needles )
+public static function ends_with( $haystack , $needles )
 {
 	foreach ( (array) $needles as $needle )
 	{
@@ -205,7 +205,7 @@ public static function endsWith( $haystack , $needles )
  * @param  string|array  $needle
  * @return bool
  */
-public static function contains( $haystack , $needle )
+public static function str_contains( $haystack , $needle )
 {
 	foreach ( (array) $needle as $n )
 	{
