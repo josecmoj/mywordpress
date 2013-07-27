@@ -157,3 +157,60 @@ function send_email( $from , $to , $subject , $message ) {
 	
 	return @mail( $to , $subject , $message , $headers );
 }
+
+
+
+/**
+ * Determine if a string starts with a given needle.
+ *
+ * @param  string  $haystack
+ * @param  string|array  $needles
+ * @return bool
+ */
+function starts_with( $haystack , $needles )
+{
+	foreach ( (array) $needles as $needle )
+	{
+		if ( strpos( $haystack , $needle ) === 0 ) return true;
+	}
+
+	return false;
+}
+
+
+
+/**
+ * Determine if a given string ends with a given needle.
+ *
+ * @param string $haystack
+ * @param string|array $needles
+ * @return bool
+ */
+public static function endsWith( $haystack , $needles )
+{
+	foreach ( (array) $needles as $needle )
+	{
+		if ( $needle == substr( $haystack , strlen( $haystack ) - strlen( $needle ) ) ) return true;
+	}
+
+	return false;
+}
+
+
+
+/**
+ * Determine if a given string contains a given sub-string.
+ *
+ * @param  string        $haystack
+ * @param  string|array  $needle
+ * @return bool
+ */
+public static function contains( $haystack , $needle )
+{
+	foreach ( (array) $needle as $n )
+	{
+		if ( strpos( $haystack , $n ) !== false ) return true;
+	}
+
+	return false;
+}
