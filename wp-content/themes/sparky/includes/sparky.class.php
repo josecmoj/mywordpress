@@ -196,22 +196,24 @@ class Sparky {
 	 *
 	 * @return array
 	 */
-	public static function pages( $child_of = null )
+	public static function pages( $child_of = null , $args = array() )
 	{
 		// If the child_of is specifically NULL, we will retrieve the current page's ID.
 		if ( is_null($child_of) ) {
 			$child_of = get_the_ID();
 		}
 		
-		$args = array(
+		$default_args = array(
 			'sort_order' => 'ASC',
 			'sort_column' => 'menu_order,post_title',
 			'hierarchical' => 1,
 			'child_of' => $child_of,
-			'parent' => -1,
+			'parent' => $child_of, // set to -1 for all child pages.
 			'post_type' => 'page',
 			'post_status' => 'publish'
 		);
+		
+		$args = array_merge( $default_args , $args );
 		
 		return get_pages( $args );
 	}

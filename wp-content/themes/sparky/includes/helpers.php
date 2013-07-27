@@ -142,15 +142,16 @@ function redirect( $location )
 /**
  * A very simple HTML email method.
  *
+ * @param  string $from
  * @param  string $to
  * @param  string $subject
  * @param  string $message
  *
  * @return boolean
  */
-function send_email( $to , $subject , $message ) {
-	$headers  = "From: {$to}\r\n";
-	$headers .= "Reply-To: {$to}\r\n";
+function send_email( $from , $to , $subject , $message ) {
+	$headers  = "From: {$from}\r\n";
+	$headers .= "Reply-To: {$from}\r\n";
 	$headers .= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-Type: text/html; charset=utf-8\r\n";
 	
