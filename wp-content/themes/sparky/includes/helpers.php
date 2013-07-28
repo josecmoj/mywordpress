@@ -140,22 +140,24 @@ function redirect( $location )
 
 
 /**
- * A very simple HTML email method.
+ * Overload WP's mail method by setting some defaults.
  *
- * @param  string $from
- * @param  string $to
- * @param  string $subject
- * @param  string $message
+ * @param  string|array $to
+ * @param  string       $subject
+ * @param  string       $message
+ * @param  string|array $headers
+ * @param  string|array $attachments
  *
  * @return boolean
  */
-function send_email( $from , $to , $subject , $message ) {
-	$headers  = "From: {$from}\r\n";
-	$headers .= "Reply-To: {$from}\r\n";
-	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=utf-8\r\n";
+function send_email( $to , $subject , $message , $headers = array() , $attachments = array() ) {
+	// Send html messages.
+	add_filter( 'wp_mail_content_type' , function() { return 'text/html'; } );
 	
-	return @mail( $to , $subject , $message , $headers );
+	// Strip slashes from the message.
+	$message = stripslashes( $message );
+	
+	return wp_mail( $to , $subject , $message , $headers, $attachments );
 }
 
 
