@@ -26,6 +26,9 @@ class Sparky {
 		
 		// Disable admin bar.
 		add_filter( 'show_admin_bar' , function() { return false; } );
+		
+		// Disable update message.
+		self::disable_update_message();
 	}
 	
 	
@@ -208,7 +211,7 @@ class Sparky {
 			'sort_column' => 'menu_order,post_title',
 			'hierarchical' => 1,
 			'child_of' => $child_of,
-			'parent' => $child_of, // set to -1 for all child pages.
+			'parent' => $child_of,
 			'post_type' => 'page',
 			'post_status' => 'publish'
 		);
@@ -256,6 +259,27 @@ class Sparky {
 				}
 			}
 		});
+	}
+	
+	
+	
+	/**
+	 * Disables update nag only if the DISALLOW_FILE_MODS has been set to true.
+	 * The above option tells WordPress whether or not updates/plugins are allowed
+	 * to be installed.
+	 * 
+	 * @param boolean $force_disable Ignore the check for DISALLOW_FILE_MODS and disable update message anyway.
+	 *
+	 * @return void
+	 */
+	public static function disable_update_message( $force_disable = false )
+	{
+		if ( $force_disable || defined('DISALLOW_FILE_MODS') && DISALLOW_FILE_MODS )
+		{
+			add_action( 'admin_menu' , function() {
+				remove_action( 'admin_notices' , 'update_nag' , 3 );
+			});
+		}
 	}
 	
 }
