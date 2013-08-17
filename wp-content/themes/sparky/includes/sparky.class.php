@@ -66,7 +66,8 @@ class Sparky {
 	 */
 	public static function title( $echo = true )
 	{
-		$title = is_front_page() ? 'Home | ' : wp_title( '|' , false , 'right' ) . get_bloginfo( 'name' );
+		$title = is_front_page() ? 'Home | ' : wp_title( '|' , false , 'right' );
+		$title .= get_bloginfo( 'name' );
 		
 		if ( !$echo ) return $title;
 		
