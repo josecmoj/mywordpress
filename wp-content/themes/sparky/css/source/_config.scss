@@ -9,15 +9,27 @@
 */
 
 
+// Debugging.
+$debug: true;
+
 
 // Fonts.
-$font-custom: 'my-custom-font';
+$font-primary: 'my-custom-font';
 
 
 // Colours.
 $colour-primary:   #BADA55;
 $colour-secondary: #B00B1E;
+$colour-tertiary:  #666;
 
 
 // Directories.
 $img: '../img/';
+
+
+// Breakpoints.
+$desktop:      new-breakpoint( min-width 960px 12 );
+$tablet:       new-breakpoint( min-width 768px max-width 959px 4 );
+$mobile:       new-breakpoint( max-width 767px 2 );
+$small-screen: new-breakpoint( max-width 640px 2 );
+$handheld:     new-breakpoint( max-width 959px 3 );

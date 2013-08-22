@@ -1,0 +1,43 @@
+/*
+|--------------------------------------------------------------------------
+| Typography
+|--------------------------------------------------------------------------
+| 
+| Any typography styles should go in here.
+| 
+*/
+
+
+// Links.
+a {
+	@include transition( color 0.3s );
+	color: $colour-primary;
+	text-decoration: underline;
+	
+	&:hover {
+		color: lighten( $colour-primary , 10 );
+		text-decoration: none;
+	}
+}
+
+
+
+// Paragraphs.
+p {}
+
+
+
+// Headings.
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+
+
+
+// Text alignment
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }

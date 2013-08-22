@@ -1,0 +1,81 @@
+/*
+|--------------------------------------------------------------------------
+| Helpers
+|--------------------------------------------------------------------------
+| 
+| Small bits and pieces that don't really belong anywhere else.
+| 
+*/
+
+
+// Vertical and horizontal lists.
+ul, ol {
+	// Vertical and horizontal lists.
+	&.vertical, &.horizontal {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+	&.vertical {
+		&.expanded > li {
+			line-height: 1.3em;
+
+			+ li { margin-top: 5px; }
+		}
+	}
+	&.horizontal {
+		> li { float: left; }
+
+		&.expanded > li + li {
+			margin-left: 10px;
+		}
+	}
+	
+	// Table-styled list.
+	&.table {
+		display: table;
+		width: 100%;
+		
+		> li {
+			display: table-cell;
+			float: none;
+			
+			> a { display: block; }
+		}
+	}
+}
+
+
+
+// Vertical alignment.
+.align-top    { vertical-align: top; }
+.align-middle { vertical-align: middle; }
+.align-bottom { vertical-align: bottom; }
+
+
+
+// Hide elements when they reach a specific breakpoint.
+.hide-on-small-screen {
+	@include media( $small-screen ) {
+		display: none !important;
+	}
+}
+.hide-on-mobile {
+	@include media( $mobile ) {
+		display: none !important;
+	}
+}
+.hide-on-tablet {
+	@include media( $tablet ) {
+		display: none !important;
+	}
+}
+.hide-on-handheld {
+	@extend .hide-on-small-screen;
+	@extend .hide-on-mobile;
+	@extend .hide-on-tablet;
+}
+
+
+.hidden { display: none !important; }
