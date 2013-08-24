@@ -1,0 +1,16 @@
+/*
+|--------------------------------------------------------------------------
+| Icons
+|--------------------------------------------------------------------------
+| 
+| All icons should be defined here and nothing else.
+| 
+*/
+
+
+// Base icon styles. Default size 16x16.
+i[class^='icon-'] { @include icon-base; }
+
+// Examples. See _mixins.scss for icon mixin.
+// i.icon-phone-white { @include icon( 0 , 0 , $nudge: 3px 3px 0 0 ); }
+// i.icon-phone-blue  { @include icon( 1 , 0 , $nudge: 3px 3px 0 0 ); }
