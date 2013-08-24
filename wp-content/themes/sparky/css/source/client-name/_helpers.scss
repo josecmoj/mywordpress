@@ -1,13 +1,3 @@
-/*
-|--------------------------------------------------------------------------
-| Helpers
-|--------------------------------------------------------------------------
-| 
-| Small bits and pieces that don't really belong anywhere else.
-| 
-*/
-
-
 // Vertical and horizontal lists.
 ul, ol {
 	// Vertical and horizontal lists.
@@ -77,5 +67,55 @@ ul, ol {
 	@extend .hide-on-tablet;
 }
 
+.show-on-small-screen {
+	display: none !important;
+	
+	@include media( $small-screen ) {
+		display: inherit !important;
+	}
+}
+.show-on-mobile {
+	display: none !important;
+	
+	@include media( $mobile ) {
+		display: inherit !important;
+	}
+}
+.show-on-tablet {
+	display: none !important;
+	
+	@include media( $tablet ) {
+		display: inherit !important;
+	}
+}
+.show-on-handheld {
+	@extend .show-on-small-screen;
+	@extend .show-on-mobile;
+	@extend .show-on-tablet;
+}
+
+
 
 .hidden { display: none !important; }
+
+
+
+img.responsive {
+	height: auto;
+	max-width: 100%;
+	width: 100%;
+}
+
+
+
+.responsive-video {
+	height: 0;
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	position: relative;
+	
+	iframe, object, embed {
+		@include position( absolute , 0px 0 0 0px );
+		@include size( 100% );
+	}
+}
