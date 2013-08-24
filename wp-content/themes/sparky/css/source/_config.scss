@@ -28,8 +28,11 @@ $img: '../img/';
 
 
 // Breakpoints.
-$desktop:      new-breakpoint( min-width 960px 12 );
-$tablet:       new-breakpoint( min-width 768px max-width 959px 4 );
-$mobile:       new-breakpoint( max-width 767px 2 );
-$small-screen: new-breakpoint( max-width 640px 2 );
-$handheld:     new-breakpoint( max-width 959px 3 );
+$large-screen: new-breakpoint( min-width 1200px 12 );
+$desktop:      new-breakpoint( min-width 1024px 12 );
+$tablet:       new-breakpoint( min-width 768px max-width 1023px 12 );
+$mobile:       new-breakpoint( min-width 641px max-width 767px 12 );
+$small-screen: new-breakpoint( max-width 640px 12 );
+
+$tablet-down:  new-breakpoint( max-width 1023px 12 );
+$mobile-down:  new-breakpoint( max-width 767px 12 );
