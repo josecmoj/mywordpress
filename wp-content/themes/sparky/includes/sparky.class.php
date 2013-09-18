@@ -207,7 +207,7 @@ class Sparky {
 	public static function pages( $child_of = null , $args = array() )
 	{
 		// If the child_of is specifically NULL, we will retrieve the current page's ID.
-		if ( is_null($child_of) ) {
+		if ( is_null( $child_of ) ) {
 			$child_of = get_the_ID();
 		}
 		
@@ -284,6 +284,41 @@ class Sparky {
 			add_action( 'admin_menu' , function() {
 				remove_action( 'admin_notices' , 'update_nag' , 3 );
 			});
+		}
+	}
+	
+	
+	
+	/**
+	 * Display pagination links for the posts page.
+	 *
+	 * @return void
+	 */
+	public static function pagination( $args = array() , $echo = true )
+	{
+		global $wp_query;
+		
+		// Get the max posts per page setting.
+		$total_pages = $wp_query->max_num_pages;
+		
+		if ( $total_pages > 1 )
+		{
+			$current_page = max( 1 , get_query_var( 'paged' ) );
+			
+			$default_args = array(
+				'base'    => get_pagenum_link( 1 ) . '%_%',
+				'format'  => '/page/%#%',
+				'current' => $current_page,
+				'total'   => $total_pages
+			);
+			
+			$args = array_merge( $default_args , $args );
+			
+			$pagination_links = paginate_links( $args );
+			
+			if ( !$echo ) return $pagination_links;
+			
+			echo $pagination_links;
 		}
 	}
 	
