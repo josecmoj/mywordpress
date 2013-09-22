@@ -308,6 +308,7 @@ class Sparky {
 			$default_args = array(
 				'base'    => get_pagenum_link( 1 ) . '%_%',
 				'format'  => '/page/%#%',
+				'type'    => 'list',
 				'current' => $current_page,
 				'total'   => $total_pages
 			);
