@@ -174,15 +174,17 @@ class Sparky {
 	 *
 	 * @return mixed
 	 */
-	public static function recent_posts( $count = 5 , $type = 'post' )
+	public static function recent_posts( $count = 5 , $type = 'post' , $args = array() )
 	{
-		$args = array(
+		$default_args = array(
 			'numberposts' => $count,
 			'orderby' => 'post_date',
 			'order' => 'DESC',
 			'post_type' => $type,
 			'post_status' => 'publish'
 		);
+		
+		$args = array_merge( $default_args , $args );
 		
 		$recent_posts = wp_get_recent_posts( $args );
 		
