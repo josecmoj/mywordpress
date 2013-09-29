@@ -5,7 +5,7 @@
 // http://codex.wordpress.org/Function_Reference/register_post_type
 function custom_type_staff()
 {
-	register_post_type( 'custom_type_staff' , array(
+	register_post_type( 'staff' , array(
 		'labels' => array(
 			'name' => 'Staff', // This is the title of the group
 			'singular_name' => 'Staff', // This is the individual type
