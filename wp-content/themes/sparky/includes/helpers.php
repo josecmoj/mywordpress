@@ -283,3 +283,20 @@ function array_set( &$array , $key , $value )
 
 	$array[ array_shift( $keys ) ] = $value;
 }
+
+
+
+/**
+ * Pluck an array of values from an array.
+ *
+ * @param  array   $array
+ * @param  string  $key
+ * @return array
+ */
+function array_pluck( $array , $key )
+{
+	return array_map( function( $value ) use ( $key )
+	{
+		return is_object( $value ) ? $value->$key : $value[$key];
+	} , $array );
+}
