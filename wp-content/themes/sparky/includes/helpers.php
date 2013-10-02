@@ -220,6 +220,24 @@ function str_contains( $haystack , $needle )
 
 
 /**
+ * Truncates a string based on the length of words.
+ *
+ * @param  string  $string
+ * @param  integer $words
+ * @param  string  $suffix
+ *
+ * @return string
+ */
+function truncate( $string , $words , $suffix = '&hellip;' )
+{
+	$string_parts = array_slice( explode( ' ' , $string ) , 0 , $words );
+	
+	return implode( ' ' , $string_parts ) . $suffix;
+}
+
+
+
+/**
  * Get an item from an array using "dot" notation.
  *
  * @param  array   $array
