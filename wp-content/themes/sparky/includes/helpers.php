@@ -230,6 +230,8 @@ function str_contains( $haystack , $needle )
  */
 function truncate( $string , $words , $suffix = '&hellip;' )
 {
+	$string = strip_tags( $string );
+	
 	$string_parts = array_slice( explode( ' ' , $string ) , 0 , $words );
 	
 	return implode( ' ' , $string_parts ) . $suffix;
