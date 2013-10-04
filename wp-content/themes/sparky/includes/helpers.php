@@ -232,7 +232,13 @@ function truncate( $string , $words , $suffix = '&hellip;' )
 {
 	$string = strip_tags( $string );
 	
-	$string_parts = array_slice( explode( ' ' , $string ) , 0 , $words );
+	$words_array = explode( ' ' , $string );
+	
+	// If the string is shorter than the words, we'll return the string without the suffix.
+	if ( count($words_array) <= $words ) return $string;
+	
+	// Get the right number of words from the words array.
+	$string_parts = array_slice( $words_array , 0 , $words );
 	
 	return implode( ' ' , $string_parts ) . $suffix;
 }
