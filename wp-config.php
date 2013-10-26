@@ -23,6 +23,8 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 		$db_user = '';
 		$db_pass = '';
 		$db_name = '';
+		
+		$disallow_file_mods = true;
 		break;
 	
 	// Production.
@@ -31,6 +33,8 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 		$db_user = '';
 		$db_pass = '';
 		$db_name = '';
+		
+		$disallow_file_mods = true;
 		break;
 	
 	// Local.
@@ -40,6 +44,8 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 		$db_user = 'root';
 		$db_pass = '';
 		$db_name = '';
+		
+		$disallow_file_mods = false;
 		break;
 	
 	default:
@@ -60,7 +66,7 @@ $my_config = array(
 	'DISALLOW_FILE_EDIT'     => true,
 	
 	// Do not allow plugins/themes to be updated/installed.
-	// 'DISALLOW_FILE_MODS'     => true,
+	'DISALLOW_FILE_MODS'     => $disallow_file_mods,
 	
 	// Database settings.
 	'DB_NAME'                => $db_name,
