@@ -65,4 +65,4 @@ Sparky::init();
 
 
 // If required, you can load a custom post type.
-// require $includes_dir . 'custom_type_staff.php';
+// require $includes_dir . 'custom_post_types.php';
