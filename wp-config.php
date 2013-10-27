@@ -14,13 +14,13 @@
  * @package WordPress
  */
 
+$environment_config = array();
 
 // Environment check
 switch ( $_SERVER['SERVER_NAME'] )
 {
 	// Local.
 	case 'localhost':
-	case 'mywordpress.dev': // REMOVE ME --------------------------------------------------------------------------------------
 	case 'LOCAL SERVER NAME: website.dev':
 		$environment_config = require 'wp-config-local.php';
 		break;
@@ -43,6 +43,9 @@ switch ( $_SERVER['SERVER_NAME'] )
  * Define all the defaults for all the constants that are about
  * to get defined and allow the environment configuration items
  * to overwrite these values.
+ * 
+ * Do not modify these values from here. Use the environment-specific
+ * config files - unless it's a global change for all environments.
  */
 $sparky_config_defaults = array(
 	// Define the HOME and SITEURL constants to be dynamic.
