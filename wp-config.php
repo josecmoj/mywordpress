@@ -14,41 +14,25 @@
  * @package WordPress
  */
 
+$environment_config = array();
 
 // Environment check
-switch ( $_SERVER['SERVER_NAME'] ) {
+switch ( $_SERVER['SERVER_NAME'] )
+{
+	// Local.
+	case 'localhost':
+	case 'LOCAL SERVER NAME: website.dev':
+		$environment_config = require 'wp-config-local.php';
+		break;
+	
 	// Staging.
 	case 'STAGING SITE SERVER NAME: website.dev.maikeldaloo.com':
-		$db_host = '';
-		$db_user = '';
-		$db_pass = '';
-		$db_name = '';
-		
-		$disallow_file_mods = true;
-		$wp_debug = false;
+		$environment_config = require 'wp-config-staging.php';
 		break;
 	
 	// Production.
 	case 'PRODUCTION SITE SERVER NAME: website.com':
-		$db_host = '';
-		$db_user = '';
-		$db_pass = '';
-		$db_name = '';
-		
-		$disallow_file_mods = true;
-		$wp_debug = false;
-		break;
-	
-	// Local.
-	case 'localhost':
-	case 'LOCAL SERVER NAME: website.dev':
-		$db_host = 'localhost';
-		$db_user = 'root';
-		$db_pass = '';
-		$db_name = '';
-		
-		$disallow_file_mods = false;
-		$wp_debug = true;
+		$environment_config = require 'wp-config-production.php';
 		break;
 	
 	default:
@@ -56,10 +40,14 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 }
 
 /**
- * Add all the main configuration items so they can be looped through and set
- * in one sexy loop.
+ * Define all the defaults for all the constants that are about
+ * to get defined and allow the environment configuration items
+ * to overwrite these values.
+ * 
+ * Do not modify these values from here. Use the environment-specific
+ * config files - unless it's a global change for all environments.
  */
-$my_config = array(
+$sparky_config_defaults = array(
 	// Define the HOME and SITEURL constants to be dynamic.
 	'WP_HOME'                => 'http://' . $_SERVER['HTTP_HOST'],
 	'WP_SITEURL'             => 'http://' . $_SERVER['HTTP_HOST'],
@@ -69,25 +57,29 @@ $my_config = array(
 	'DISALLOW_FILE_EDIT'     => true,
 	
 	// Do not allow plugins/themes to be updated/installed.
-	'DISALLOW_FILE_MODS'     => $disallow_file_mods,
+	'DISALLOW_FILE_MODS'     => true,
 	
 	// Database settings.
-	'DB_NAME'                => $db_name,
-	'DB_USER'                => $db_user,
-	'DB_PASSWORD'            => $db_pass,
-	'DB_HOST'                => $db_host,
+	'DB_NAME'                => '',
+	'DB_USER'                => '',
+	'DB_PASSWORD'            => '',
+	'DB_HOST'                => '',
 	'DB_CHARSET'             => 'utf8',
 	'DB_COLLATE'             => '',
 	
 	// WordPress Debug mode.
-	'WP_DEBUG'               => $wp_debug,
+	'WP_DEBUG'               => false,
 	
 	// Limit the post/page revisions to reduce DB bloat.
 	'WP_POST_REVISIONS'      => 5
 );
 
+// Merge the environment config items with the defaults.
+$sparky_config = array_merge( $sparky_config_defaults , $environment_config );
+
 // Define all the configuration items.
-foreach ( $my_config as $config_setting => $config_value ) {
+foreach ( $sparky_config as $config_setting => $config_value )
+{
 	define( $config_setting , $config_value );
 }
 
@@ -109,7 +101,8 @@ define('SECURE_AUTH_SALT', 'put your unique phrase here');
 define('LOGGED_IN_SALT',   'put your unique phrase here');
 define('NONCE_SALT',       'put your unique phrase here');
 
-if ( !AUTH_KEY || AUTH_KEY == 'put your unique phrase here' ) {
+if ( !AUTH_KEY || AUTH_KEY == 'put your unique phrase here' )
+{
 	die( 'Please update your secret keys.<br><a href="https://api.wordpress.org/secret-key/1.1/salt/" target="_blank">Click here</a>' );
 }
 
