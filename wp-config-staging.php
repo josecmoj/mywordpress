@@ -10,10 +10,10 @@ return array(
 	'WP_ENV'      => 'staging',
 	
 	// DB details.
-	'DB_NAME'     => '',
+	'DB_HOST'     => '',
 	'DB_USER'     => '',
 	'DB_PASSWORD' => '',
-	'DB_HOST'     => '',
+	'DB_NAME'     => '',
 	
 	// Do not allow plugins/themes to be updated/installed.
 	'DISALLOW_FILE_MODS' => true,

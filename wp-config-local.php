@@ -10,10 +10,10 @@ return array(
 	'WP_ENV'      => 'local',
 	
 	// DB details.
-	'DB_NAME'     => 'localhost',
+	'DB_HOST'     => 'localhost',
 	'DB_USER'     => 'root',
 	'DB_PASSWORD' => '',
-	'DB_HOST'     => '',
+	'DB_NAME'     => '',
 	
 	// Do not allow plugins/themes to be updated/installed.
 	'DISALLOW_FILE_MODS' => false,
