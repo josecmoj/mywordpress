@@ -45,6 +45,7 @@
 .column-third + .column-two-thirds,
 .column-two-thirds + .column-third,
 .column-quarter + .column-quarter + .column-quarter + .column-quarter,
-.column-fifth + .column-fifth + .column-fifth + .column-fifth + .column-fifth {
+.column-fifth + .column-fifth + .column-fifth + .column-fifth + .column-fifth,
+.column-last {
 	@extend .omega;
 }

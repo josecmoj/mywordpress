@@ -79,13 +79,18 @@ function img( $filename , $echo = true )
 /**
  * Returns the path to a JavaScript file.
  *
- * @param  string $filename
+ * @param  string  $filename
+ * @param  boolean $echo
  *
  * @return string
  */
-function js( $filename )
+function js( $filename , $echo = true )
 {
-	return DIR_THEME . "js/{$filename}";
+	$js = DIR_THEME . "js/{$filename}";
+	
+	if ( !$echo ) return $js;
+	
+	echo $js;
 }
 
 
@@ -93,13 +98,18 @@ function js( $filename )
 /**
  * Returns the path to a CSS file.
  *
- * @param  string $filename
+ * @param  string  $filename
+ * @param  boolean $echo
  *
  * @return string
  */
-function css( $filename )
+function css( $filename , $echo = true )
 {
-	return DIR_THEME . "css/{$filename}";
+	$css = DIR_THEME . "css/{$filename}";
+	
+	if ( !$echo ) return $css;
+	
+	echo $css;
 }
 
 
