@@ -1,13 +1,13 @@
 gzip_assets: off
-compress_assets: on
+compress_assets: off
 javascript_compressor: uglifier
 
 javascripts:
-  wp-content/themes/sparky/js/main.min:
+  wp-content/themes/sparky/js/main.src:
     - wp-content/themes/sparky/js/lib/tiny.pubsub.min.js
     - wp-content/themes/sparky/js/modules/*.js
     - wp-content/themes/sparky/js/main.js
 
 stylesheets:
-  wp-content/themes/sparky/css/main.min:
+  wp-content/themes/sparky/css/main.src:
     - wp-content/themes/sparky/css/main.css
