@@ -1,4 +1,4 @@
-	<?php Asset::js() ?>
+	<?php Assets::js() ?>
 	
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 	<script>

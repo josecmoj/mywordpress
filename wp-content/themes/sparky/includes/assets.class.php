@@ -1,6 +1,6 @@
 <?php
 
-class Asset {
+class Assets {
 	
 	/**
 	 * Stores all the asset files and gets them ready to output.

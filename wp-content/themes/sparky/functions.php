@@ -29,14 +29,13 @@ define( 'DIR_INCLUDES' , $current_dir . 'includes/' );
 define( 'DIR_THEME'    , get_stylesheet_directory_uri() . '/' );
 define( 'DIR_PARTIALS' , $current_dir . '_partials/' );
 
-require DIR_INCLUDES . 'config.class.php';
-require DIR_INCLUDES . 'helpers.php';
-require DIR_INCLUDES . 'sparky.class.php';
-require DIR_INCLUDES . 'asset.class.php';
+require_once DIR_INCLUDES . 'helpers.php';
+require_once DIR_INCLUDES . 'sparky.class.php';
+require_once DIR_INCLUDES . 'assets.class.php';
 
 // When using the Options plugin with ACF - we might find the Options class useful
 // as it can retrieve values and cache them for any consecutive queries.
-// require DIR_INCLUDES . 'options.class.php';
+// require_once DIR_INCLUDES . 'options.class.php';
 
 
 // Initialise the Sparky class. It enables a few necessary features.
@@ -47,20 +46,20 @@ Sparky::init();
 if ( WP_ENV === 'local' )
 {
 	// JS.
-	Asset::add( '//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js' , 0 );
-	Asset::add( DIR_THEME . 'js/main.src.js' , 1 );
+	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js' , 0 );
+	Assets::add( DIR_THEME . 'js/main.src.js' , 1 );
 	
 	// CSS.
-	Asset::add( DIR_THEME . 'css/main.src.css' , 0 );
+	Assets::add( DIR_THEME . 'css/main.src.css' , 0 );
 }
 else
 {
 	// JS.
-	Asset::add( '//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js' , 0 );
-	Asset::add( DIR_THEME . 'js/main.min.js' , 1 );
+	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js' , 0 );
+	Assets::add( DIR_THEME . 'js/main.min.js' , 1 );
 	
 	// CSS.
-	Asset::add( DIR_THEME . 'css/main.min.css' , 0 );
+	Assets::add( DIR_THEME . 'css/main.min.css' , 0 );
 }
 
 
@@ -73,7 +72,7 @@ else
 
 
 // Load some additional custom post types.
-// require DIR_INCLUDES . 'custom_post_types.php';
+// require_once DIR_INCLUDES . 'custom_post_types.php';
 
 // Define sidebars, if necessary.
-// require DIR_INCLUDES . 'sidebars.php';
+// require_once DIR_INCLUDES . 'sidebars.php';
