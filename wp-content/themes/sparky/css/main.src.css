@@ -1007,7 +1007,7 @@ i[class^='icon-'] {
   top: 2px;
   width: 16px;
   height: 16px;
-  background-image: url("../img/sprite.min.png");
+  background-image: url(../w:/_personal/MyWordPress/wp-content/themes/sparky/img/sprite.min.png);
   display: inline-block;
   margin-right: 5px;
 }
