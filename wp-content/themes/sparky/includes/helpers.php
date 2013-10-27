@@ -13,24 +13,6 @@
 
 
 /**
- * Get a value if it's set and not empty, or returns a default value
- * that can be defined in the second parameter.
- *
- * @param  mixed $value
- * @param  mixed $default
- *
- * @return mixed
- */
-function get( $value , $default = null )
-{
-	if ( isset($value) && !empty($value) ) return $value;
-	
-	return $default;
-}
-
-
-
-/**
  * Outputs the content of a file that is located in the _partials directory.
  *
  * @param  string  $file Name of the file stored in the _partials directory. Extension is optional.
@@ -39,12 +21,20 @@ function get( $value , $default = null )
  *
  * @return mixed         String or void.
  */
-function partial( $file , $vars = array() , $echo = true )
+function partial( $file , $vars = [] , $echo = true )
 {
 	// Get extension if it's set, or default to php.
 	$extension = pathinfo( $file , PATHINFO_EXTENSION );
 	if ( !$extension ) $extension = 'php';
 	
+	// Construct the URI for the file.
+	$file_path = DIR_PARTIALS . "{$file}.{$extension}";
+	
+	// Before going any further, let's test to see if our file actually exists.
+	if ( !file_exists( $file_path ) )
+	{
+		throw new Exception( "Could not load {$file_path}.\nPlease double check the path." );
+	}
 	
 	// Start the output buffer.
 	ob_start();
@@ -53,7 +43,7 @@ function partial( $file , $vars = array() , $echo = true )
 	extract( $vars );
 	
 	// Include our file.
-	require Config::get('dir.partials') . $file . '.' . $extension;
+	require $file_path;
 	
 	// Let's get what the output buffer has rendered.
 	$content = ob_get_clean();
@@ -70,13 +60,18 @@ function partial( $file , $vars = array() , $echo = true )
 /**
  * Returns the path to an image.
  *
- * @param  string $filename
+ * @param  string  $filename
+ * @param  boolean $echo
  *
  * @return string
  */
-function img( $filename )
+function img( $filename , $echo = true )
 {
-	return Config::get( 'dir.img' ) . $filename;
+	$img = DIR_THEME . "img/{$filename}";
+	
+	if ( !$echo ) return $img;
+	
+	echo $img;
 }
 
 
@@ -90,7 +85,7 @@ function img( $filename )
  */
 function js( $filename )
 {
-	return Config::get( 'dir.js' ) . $filename;
+	return DIR_THEME . "js/{$filename}";
 }
 
 
@@ -104,7 +99,7 @@ function js( $filename )
  */
 function css( $filename )
 {
-	return Config::get( 'dir.css' ) . $filename;
+	return DIR_THEME . "css/{$filename}";
 }
 
 
@@ -150,7 +145,7 @@ function redirect( $location )
  *
  * @return boolean
  */
-function send_email( $to , $subject , $message , $headers = array() , $attachments = array() ) {
+function send_email( $to , $subject , $message , $headers = [] , $attachments = [] ) {
 	// Send html messages.
 	add_filter( 'wp_mail_content_type' , function() { return 'text/html'; } );
 	
@@ -262,7 +257,7 @@ function array_get( $array , $key , $default = null )
 
 	foreach ( explode( '.' , $key ) as $segment )
 	{
-		if ( !is_array( $array ) or ! array_key_exists( $segment , $array ) )
+		if ( !is_array( $array ) || !array_key_exists( $segment , $array ) )
 		{
 			return $default;
 		}
@@ -299,9 +294,9 @@ function array_set( &$array , $key , $value )
 		// If the key doesn't exist at this depth, we will just create an empty array
 		// to hold the next value, allowing us to create the arrays to hold final
 		// values at the correct depth. Then we'll keep digging into the array.
-		if ( !isset( $array[$key] ) or !is_array( $array[$key]) )
+		if ( !isset( $array[$key] ) || !is_array( $array[$key] ) )
 		{
-			$array[$key] = array();
+			$array[$key] = [];
 		}
 
 		$array =& $array[$key];

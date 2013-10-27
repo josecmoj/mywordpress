@@ -9,6 +9,7 @@ guard :jammit,
   :config_path     => "assets.yml",
   :output_folder   => "." do
     watch(%r{^wp-content/themes/sparky/js/(.*)\.js$})
+    watch(%r{^wp-content/themes/sparky/css/main\.css$})
   end
 
 # Jammit - development.
@@ -16,6 +17,7 @@ guard :jammit,
   :config_path     => "assets-dev.yml",
   :output_folder   => "." do
     watch(%r{^wp-content/themes/sparky/js/(.*)\.js$})
+    watch(%r{^wp-content/themes/sparky/css/main\.css$})
   end
 
 guard 'livereload' do

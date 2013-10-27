@@ -24,33 +24,18 @@
 */
 
 $current_dir  = dirname( __FILE__ ) . '/';
-$includes_dir = $current_dir . 'includes/';
-$theme_dir    = get_stylesheet_directory_uri() . '/'; // This is mainly for the img/css/js helper functions.
 
-require $includes_dir . 'config.class.php';
-require $includes_dir . 'helpers.php';
-require $includes_dir . 'sparky.class.php';
+define( 'DIR_INCLUDES' , $current_dir . 'includes/' );
+define( 'DIR_THEME'    , get_stylesheet_directory_uri() . '/' );
+define( 'DIR_PARTIALS' , $current_dir . '_partials/' );
 
-/*
-|--------------------------------------------------------------------------
-| Config
-|--------------------------------------------------------------------------
-| 
-| Store config variables here and they'll be accessible everywhere within
-| the theme.
-| 
-| WARNING:
-| These directory config settings should not be removed (dir.*).
-| They're used throughout the theme and there will be some errors if
-| they're removed or modified.
-| 
-*/
+require DIR_INCLUDES . 'config.class.php';
+require DIR_INCLUDES . 'helpers.php';
+require DIR_INCLUDES . 'sparky.class.php';
 
-Config::set( 'dir.partials' , $current_dir . '_partials/' );
-Config::set( 'dir.theme' , $theme_dir );
-Config::set( 'dir.css' , $theme_dir . 'css/' );
-Config::set( 'dir.img' , $theme_dir . 'img/' );
-Config::set( 'dir.js' , $theme_dir . 'js/' );
+// When using the Options plugin with ACF - we might find the Options class useful
+// as it can retrieve values and cache them for any consecutive queries.
+// require DIR_INCLUDES . 'options.class.php';
 
 
 // Initialise the Sparky class. It enables a few necessary features.
@@ -58,11 +43,14 @@ Sparky::init();
 
 
 // Set custom image sizes for WordPress to resize when uploading new images.
-// Sparky::add_custom_image_sizes(array(
+// Sparky::add_custom_image_sizes([
 // 	'blog-feature' => '600x200',
 // 	'gallery-thumbnail' => '200x200'
-// ));
+// ]);
 
 
-// If required, you can load a custom post type.
-// require $includes_dir . 'custom_post_types.php';
+// Load some additional custom post types.
+// require DIR_INCLUDES . 'custom_post_types.php';
+
+// Define sidebars, if necessary.
+// require DIR_INCLUDES . 'sidebars.php';
