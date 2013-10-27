@@ -27,14 +27,9 @@ $colour-tertiary:  #666;
 $img: '../img/';
 
 
-// Set whether or not to use minified images.
-// What this does is append .min before the file name when using the img() function.
-$use-minified-images: false;
-
-
 // Breakpoints.
 $large-screen: new-breakpoint( min-width 1200px 12 );
-$desktop:      new-breakpoint( min-width 1024px 12 );
+$desktop:      new-breakpoint( min-width 1024px max-width 1199px 12 );
 $tablet:       new-breakpoint( min-width 768px max-width 1023px 12 );
 $mobile:       new-breakpoint( min-width 641px max-width 767px 12 );
 $small-screen: new-breakpoint( max-width 640px 12 );

@@ -1,7 +1,7 @@
 <?php partial('head') ?>
 <?php partial('header') ?>
 
-<div id="container">
+<div class="container">
 	
 	<section id="body">
 		<div id="content" role="main">

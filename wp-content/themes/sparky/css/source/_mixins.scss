@@ -77,21 +77,3 @@
 	@if $height { height: $height; }
 	@if $nudge  { @include position( relative , $nudge ); }
 }
-
-
-
-// ---------------------------------------------------------------------
-// Img mixin.
-// ---------------------------------------------------------------------
-// 
-// Loads an image based on whether or not the $use-minified-images is
-// set to true. Then any background that uses this method will load
-// a file that is minified. e.g. img('body') will return:
-// ../img/body.min.png.
-@function img( $filename , $extension: 'png' ) {
-	@if $use-minified-images {
-		@return $img + $filename + '.min.' + $extension;
-	} @else {
-		@return $img + $filename + '.' + $extension;
-	}
-}
