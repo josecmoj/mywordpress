@@ -37,7 +37,7 @@ class Sparky {
 	 * Outputs/returns a string and allows you to perform a find and replace for special
 	 * keywords. For example:
 	 * 		$output = '<h1>{title}</h1>';
-	 * 		$replacements = array( '{title}' => 'My Title' );
+	 * 		$replacements = [ '{title}' => 'My Title' ];
 	 * 		Sparky::render( $output , $replacements );
 	 *
 	 * @param  string  $output
@@ -46,7 +46,7 @@ class Sparky {
 	 *
 	 * @return mixed
 	 */
-	public static function render( $output , $replacements = array() , $echo = true )
+	public static function render( $output , $replacements = [] , $echo = true )
 	{
 		$find = array_keys( $replacements );
 		$replace = array_values( $replacements );
@@ -132,12 +132,12 @@ class Sparky {
 	 *
 	 * @return void string
 	 */
-	public static function menu( $name , $args = array() )
+	public static function menu( $name , $args = [] )
 	{
-		$default_args = array(
+		$default_args = [
 			'echo' => false,
 			'menu' => $name
-		);
+		];
 		
 		$args = array_merge( $default_args , $args );
 		
@@ -174,15 +174,15 @@ class Sparky {
 	 *
 	 * @return mixed
 	 */
-	public static function recent_posts( $count = 5 , $type = 'post' , $args = array() )
+	public static function recent_posts( $count = 5 , $type = 'post' , $args = [] )
 	{
-		$default_args = array(
+		$default_args = [
 			'numberposts' => $count,
 			'orderby' => 'post_date',
 			'order' => 'DESC',
 			'post_type' => $type,
 			'post_status' => 'publish'
-		);
+		];
 		
 		$args = array_merge( $default_args , $args );
 		
@@ -206,14 +206,14 @@ class Sparky {
 	 *
 	 * @return array
 	 */
-	public static function pages( $child_of = null , $args = array() )
+	public static function pages( $child_of = null , $args = [] )
 	{
 		// If the child_of is specifically NULL, we will retrieve the current page's ID.
 		if ( is_null( $child_of ) ) {
 			$child_of = get_the_ID();
 		}
 		
-		$default_args = array(
+		$default_args = [
 			'sort_order' => 'ASC',
 			'sort_column' => 'menu_order,post_title',
 			'hierarchical' => 1,
@@ -221,7 +221,7 @@ class Sparky {
 			'parent' => $child_of,
 			'post_type' => 'page',
 			'post_status' => 'publish'
-		);
+		];
 		
 		$args = array_merge( $default_args , $args );
 		
@@ -247,7 +247,7 @@ class Sparky {
 			end ($menu);
 			
 			// Store all the menu items that are to be disabled/hidden.
-			$restricted = array();
+			$restricted = [];
 			
 			foreach ( $items as $item )
 			{
@@ -296,7 +296,7 @@ class Sparky {
 	 *
 	 * @return void
 	 */
-	public static function pagination( $args = array() , $echo = true )
+	public static function pagination( $args = [] , $echo = true )
 	{
 		global $wp_query;
 		
@@ -307,13 +307,13 @@ class Sparky {
 		{
 			$current_page = max( 1 , get_query_var( 'paged' ) );
 			
-			$default_args = array(
+			$default_args = [
 				'base'    => get_pagenum_link( 1 ) . '%_%',
 				'format'  => '/page/%#%',
 				'type'    => 'list',
 				'current' => $current_page,
 				'total'   => $total_pages
-			);
+			];
 			
 			$args = array_merge( $default_args , $args );
 			

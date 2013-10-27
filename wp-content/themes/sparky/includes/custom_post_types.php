@@ -6,8 +6,8 @@ add_action( 'init' , function()
 	$singluar = 'Event';
 	$plural   = 'Events';
 	
-	register_post_type( 'event' , array(
-		'labels' => array(
+	register_post_type( 'event' , [
+		'labels' => [
 			'name'               => $singluar,
 			'singular_name'      => $singluar,
 			'menu_name'          => $plural,
@@ -21,7 +21,7 @@ add_action( 'init' , function()
 			'search_items'       => "Search $plural",
 			'not_found'          => "No $plural found in the Database.",
 			'not_found_in_trash' => "No $plural found in Trash"
-		),
+		],
 		
 		'description'            => "$plural custom post type.",
 		'public'                 => true,
@@ -29,7 +29,7 @@ add_action( 'init' , function()
 		'menu_position'          => 25,
 		'menu_icon'              => img( 'assets/custom-post-icon.png' ),
 		'hierarchical'           => false,
-		'supports'               => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields',
-                                           'comments', 'revisions', 'page-attributes', 'post-formats' )
-	));
+		'supports'               => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields',
+                                      'comments', 'revisions', 'page-attributes', 'post-formats' ]
+	]);
 });
