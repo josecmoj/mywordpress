@@ -17,7 +17,6 @@
 	position: relative;
 }
 
-.omega { @include omega; }
 .column-full { @include fill-parent; }
 
 // Normal columns - based on display block.
@@ -40,12 +39,12 @@
 
 // IE8 retardedness fix. Since IE8 doesn't understand last-child, we have to manually reset
 // last column's margin-right back to 0 so everything fits nicely.
+.column-last,
 .column-half + .column-half,
 .column-third + .column-third + .column-third,
 .column-third + .column-two-thirds,
 .column-two-thirds + .column-third,
 .column-quarter + .column-quarter + .column-quarter + .column-quarter,
-.column-fifth + .column-fifth + .column-fifth + .column-fifth + .column-fifth,
-.column-last {
-	@extend .omega;
+.column-fifth + .column-fifth + .column-fifth + .column-fifth + .column-fifth {
+	@include omega;
 }
