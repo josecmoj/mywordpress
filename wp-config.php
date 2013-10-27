@@ -25,6 +25,7 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 		$db_name = '';
 		
 		$disallow_file_mods = true;
+		$wp_debug = false;
 		break;
 	
 	// Production.
@@ -35,6 +36,7 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 		$db_name = '';
 		
 		$disallow_file_mods = true;
+		$wp_debug = false;
 		break;
 	
 	// Local.
@@ -46,6 +48,7 @@ switch ( $_SERVER['SERVER_NAME'] ) {
 		$db_name = '';
 		
 		$disallow_file_mods = false;
+		$wp_debug = true;
 		break;
 	
 	default:
@@ -77,7 +80,7 @@ $my_config = array(
 	'DB_COLLATE'             => '',
 	
 	// WordPress Debug mode.
-	'WP_DEBUG'               => false,
+	'WP_DEBUG'               => $wp_debug,
 	
 	// Limit the post/page revisions to reduce DB bloat.
 	'WP_POST_REVISIONS'      => 5
