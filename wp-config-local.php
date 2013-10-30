@@ -15,6 +15,14 @@ return array(
 	'DB_PASSWORD' => '',
 	'DB_NAME'     => '',
 	
+	// SMTP Details for email sending. These settings are applied when
+	// at least the SMTP host is provided.
+	'SMTP_HOST' => '',
+	'SMTP_USER' => '',
+	'SMTP_PASS' => '',
+	'SMTP_PORT' => '',
+	'SMTP_AUTH' => true,
+	
 	// Do not allow plugins/themes to be updated/installed.
 	'DISALLOW_FILE_MODS' => false,
 	

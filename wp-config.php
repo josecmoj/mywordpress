@@ -52,7 +52,6 @@ $sparky_config_defaults = array(
 	'WP_HOME'                => 'http://' . $_SERVER['HTTP_HOST'],
 	'WP_SITEURL'             => 'http://' . $_SERVER['HTTP_HOST'],
 	
-
 	// Do not allow theme editing from WP admin.
 	'DISALLOW_FILE_EDIT'     => true,
 	
@@ -66,6 +65,14 @@ $sparky_config_defaults = array(
 	'DB_HOST'                => '',
 	'DB_CHARSET'             => 'utf8',
 	'DB_COLLATE'             => '',
+	
+	// SMTP Details for email sending. These settings are applied when
+	// at least the SMTP host is provided.
+	'SMTP_HOST' => '',
+	'SMTP_USER' => '',
+	'SMTP_PASS' => '',
+	'SMTP_PORT' => '',
+	'SMTP_AUTH' => true,
 	
 	// WordPress Debug mode.
 	'WP_DEBUG'               => false,

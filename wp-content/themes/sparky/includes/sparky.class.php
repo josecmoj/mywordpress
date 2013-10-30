@@ -29,6 +29,11 @@ class Sparky {
 		
 		// Disable update message.
 		self::disable_update_message();
+		
+		if ( defined( 'SMTP_HOST' ) && !empty( SMTP_HOST ) )
+		{
+			self::setupSMTP();
+		}
 	}
 	
 	
@@ -101,6 +106,28 @@ class Sparky {
 		if ( !$echo ) return $description;
 		
 		echo $description;
+	}
+	
+	
+	
+	/**
+	 * If configured in the wp-config file, we will override the SMTP settings
+	 * that WordPress uses by default.
+	 *
+	 * @return void
+	 */
+	public static function setupSMTP()
+	{
+		add_action( 'phpmailer_init' , function( $mail_settings ) {
+			$phpmailer =& $mail_settings;
+			$phpmailer->IsSMTP();
+
+			$phpmailer->Host     = SMTP_HOST;
+			$phpmailer->Username = SMTP_USER;
+			$phpmailer->Password = SMTP_PASS;
+			$phpmailer->Port     = SMTP_PORT;
+			$phpmailer->SMTPAuth = SMTP_AUTH;
+		});
 	}
 	
 	
