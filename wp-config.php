@@ -58,6 +58,9 @@ $sparky_config_defaults = array(
 	// Do not allow plugins/themes to be updated/installed.
 	'DISALLOW_FILE_MODS'     => true,
 	
+	// Completely disable the auto-update feature in WordPress 3.7 and newer.
+	'AUTOMATIC_UPDATER_DISABLED' => true,
+	
 	// Database settings.
 	'DB_NAME'                => '',
 	'DB_USER'                => '',
