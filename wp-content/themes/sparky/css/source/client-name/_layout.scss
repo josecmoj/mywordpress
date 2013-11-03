@@ -37,6 +37,12 @@
 .column-quarter-table { @include span-columns( 3 of 12 , table ); }
 .column-fifth-table { @include span-columns( 2.4 of 12 , table ); }
 
+.column-half-table,
+.column-third-table,
+.column-two-thirds-table,
+.column-quarter-table,
+.column-fifth-table { vertical-align: top; }
+
 // IE8 retardedness fix. Since IE8 doesn't understand last-child, we have to manually reset
 // last column's margin-right back to 0 so everything fits nicely.
 .column-last,
