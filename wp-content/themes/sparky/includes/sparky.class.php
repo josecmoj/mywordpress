@@ -30,7 +30,7 @@ class Sparky {
 		// Disable update message.
 		self::disable_update_message();
 		
-		if ( defined( 'SMTP_HOST' ) && !empty( SMTP_HOST ) )
+		if ( defined( 'SMTP_HOST' ) && SMTP_HOST )
 		{
 			self::setupSMTP();
 		}
