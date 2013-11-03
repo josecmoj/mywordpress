@@ -118,7 +118,8 @@ class Sparky {
 	 */
 	public static function setupSMTP()
 	{
-		add_action( 'phpmailer_init' , function( $mail_settings ) {
+		add_action( 'phpmailer_init' , function( $mail_settings )
+		{
 			$phpmailer =& $mail_settings;
 			$phpmailer->IsSMTP();
 
