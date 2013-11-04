@@ -163,8 +163,9 @@ class Sparky {
 	public static function menu( $name , $args = [] )
 	{
 		$default_args = [
-			'echo' => false,
-			'menu' => $name
+			'echo'        => false,
+			'fallback_cb' => false,
+			'menu'        => $name
 		];
 		
 		$args = array_merge( $default_args , $args );
