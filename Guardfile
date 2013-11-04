@@ -20,6 +20,14 @@ guard :jammit,
     watch(%r{^wp-content/themes/sparky/css/main\.css$})
   end
 
+# Add files and commands to this file, like the example:
+#   watch(%r{file/path}) { `command(s)` }
+guard 'shell' do
+  watch(/wp-content\/themes\/sparky\/cutups\/source\/pages\/(.*).jade/) { |m|
+    `jade -P wp-content/themes/sparky/cutups/source/pages -o wp-content/themes/sparky/cutups`
+  }
+end
+
 guard 'livereload' do
   watch(%r{.+\.(php|html|js|css)$})
 end

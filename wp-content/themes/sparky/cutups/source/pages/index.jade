@@ -1,0 +1,28 @@
+doctype 5
+//if IE 8
+  html(class="lt-ie10 lt-ie9 ie8", lang="en")
+//if IE 9
+  html(class="lt-ie10 ie9", lang="en")
+// [if gt IE 9] <!
+html(lang="en")
+  // <![endif]
+  
+  include ../_partials/head
+  
+  body
+    div.container
+      header#header
+        h1 My Website
+    
+    div.container
+      section#body.row-table
+        div#content( role="main" )
+          section.entry-content
+            h1 Title
+            
+        aside#sidebar( role="complementary" )
+          include ../_partials/sidebar
+    
+    div.container
+      footer#footer
+        p Copyright &copy; 2013. All rights reserved.
