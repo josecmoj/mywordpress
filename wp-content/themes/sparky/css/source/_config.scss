@@ -24,8 +24,8 @@ $colour-secondary: #B00B1E;
 $colour-body:  #666;
 
 
-// Directories.
-$img: '../img/';
+// Directories - gotta use absolute URLs, relative URLs come out wrong.
+$img: '/wp-content/themes/sparky/img/';
 
 
 // Breakpoints.
