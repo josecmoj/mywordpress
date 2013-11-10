@@ -61,10 +61,15 @@ ul, ol {
 		display: none !important;
 	}
 }
-.hide-on-handheld {
-	@extend .hide-on-small-screen;
-	@extend .hide-on-mobile;
-	@extend .hide-on-tablet;
+.hide-on-mobile-down {
+	@include media( $mobile-down ) {
+		display: none !important;
+	}
+}
+.hide-on-tablet-down {
+	@include media( $tablet-down ) {
+		display: none !important;
+	}
 }
 
 .show-on-small-screen {
