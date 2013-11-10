@@ -12,7 +12,7 @@ if ( function_exists('register_sidebar') )
 	// Define the sidebars here.
 	$sidebars = [
 		[ 'name' => 'Home Page Sidebar' ],
-		[ 'name' => 'Article Listing Sidebar' ]
+		[ 'name' => 'Article Listing Sidebar' ],
 		[ 'name' => 'Single Article Sidebar' ]
 	];
 	
