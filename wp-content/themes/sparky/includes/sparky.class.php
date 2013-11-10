@@ -322,36 +322,34 @@ class Sparky {
 	
 	/**
 	 * Display pagination links for the posts page.
+	 * 
+	 * @param array  $args         A list of arguments to override default functionality.
+	 * @param object $query_object If you're working with your own query, pass it here, otherwise we'll use the global $wp_query
 	 *
 	 * @return void
 	 */
-	public static function pagination( $args = [] , $echo = true )
+	function pagination( $args = array() , $query_object = null )
 	{
 		global $wp_query;
 		
-		// Get the max posts per page setting.
-		$total_pages = $wp_query->max_num_pages;
+		// Determine which Query object to use.
+		$query = !$query_object ? $wp_query : $query_object;
 		
-		if ( $total_pages > 1 )
-		{
-			$current_page = max( 1 , get_query_var( 'paged' ) );
-			
-			$default_args = [
-				'base'    => get_pagenum_link( 1 ) . '%_%',
-				'format'  => '/page/%#%',
-				'type'    => 'list',
-				'current' => $current_page,
-				'total'   => $total_pages
-			];
-			
-			$args = array_merge( $default_args , $args );
-			
-			$pagination_links = paginate_links( $args );
-			
-			if ( !$echo ) return $pagination_links;
-			
-			echo $pagination_links;
-		}
+		$big = 999999999; // Need an unlikely integer.
+		
+		$default_args = array(
+			'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+			'format'  => '/page/%#%',
+			'current' => max( 1 , get_query_var( 'paged' ) ),
+			'total'   => $query->max_num_pages,
+			'type'    => 'list',
+			'prev_text' => '&laquo;',
+			'next_text' => '&raquo;'
+		);
+		
+		$args = array_merge( $default_args , $args );
+		
+		echo paginate_links( $args );
 	}
 	
 }
