@@ -76,3 +76,6 @@ else
 
 // Define sidebars, if necessary.
 // require_once DIR_INCLUDES . 'sidebars.php';
+
+// Define shortcodes, if necessary.
+// require_once DIR_INCLUDES . 'shortcodes.php';
