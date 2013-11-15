@@ -9,16 +9,16 @@
 
 
 // Links.
-a {
-	@include transition( color 0.3s );
-	color: $colour-primary;
-	text-decoration: underline;
+// a {
+// 	@include transition( color 0.3s );
+// 	color: $colour-primary;
+// 	text-decoration: underline;
 	
-	&:hover {
-		color: lighten( $colour-primary , 10 );
-		text-decoration: none;
-	}
-}
+// 	&:hover {
+// 		color: lighten( $colour-primary , 10 );
+// 		text-decoration: none;
+// 	}
+// }
 
 
 

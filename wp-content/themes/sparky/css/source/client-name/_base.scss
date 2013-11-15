@@ -12,17 +12,6 @@
 *, *:before, *:after { @include box-sizing( border-box ); }
 
 
-
-// Base document styles.
-html, body {
-	background: white;
-	color: $colour-body;
-	font: normal 18px/24px $font-primary, $helvetica;
-	margin: 0;
-	padding: 0;
-}
-
-
 // Specific grid styling for the main content and sidebar elements.
 #content {
 	@include span-columns( 8 of 12 , table );

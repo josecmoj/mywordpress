@@ -2,7 +2,7 @@
 ul, ol {
 	// Vertical and horizontal lists.
 	&.vertical, &.horizontal {
-		list-style: none;
+		list-style-type: none;
 		padding: 0;
 		margin: 0;
 		overflow: hidden;
@@ -35,6 +35,11 @@ ul, ol {
 		}
 	}
 }
+
+// Bitters overrides the default list styles to have no styles - we don't want that.
+ul { @extend %default-ul; }
+ol { @extend %default-ol; }
+
 
 
 

@@ -45,7 +45,7 @@
 
 // IE8 retardedness fix. Since IE8 doesn't understand last-child, we have to manually reset
 // last column's margin-right back to 0 so everything fits nicely.
-.column-last,
+.column-last, .omega,
 .column-half + .column-half,
 .column-third + .column-third + .column-third,
 .column-third + .column-two-thirds,
