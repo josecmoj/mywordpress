@@ -41,3 +41,9 @@ h6, .h6 {}
 .text-left   { text-align: left; }
 .text-center { text-align: center; }
 .text-right  { text-align: right; }
+
+
+
+pre {
+	@include prefixer( tab-size , 4 , moz o spec );
+}
