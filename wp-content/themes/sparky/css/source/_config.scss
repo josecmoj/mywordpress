@@ -17,14 +17,14 @@ $debug: true;
 $font-primary: 'my-custom-font';
 
 
-// Colours.
+// Global colour declarations.
 $colour-primary:   #BADA55;
 $colour-secondary: #B00B1E;
 
-$colour-body:  #666;
+$colour-body: #666;
 
 
-// Directories - gotta use absolute URLs, relative URLs come out wrong.
+// Directories - gotta use absolute URLs, relative URLs come out wrong when compiling.
 $img: '/wp-content/themes/sparky/img/';
 
 

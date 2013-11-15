@@ -3,8 +3,9 @@
 // All the files should be in the 'scss' directory.
 // --------------------------------------------------------------------------------
 
-@import 'source/bourbon/bourbon';
-@import 'source/neat/neat';
+@import 'source/libs/bourbon/bourbon';
+@import 'source/libs/neat/neat';
+@import 'source/libs/bitters/bitters';
 
 @import 'source/config';
 @import 'source/mixins';
