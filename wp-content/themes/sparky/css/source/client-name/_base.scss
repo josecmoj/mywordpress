@@ -23,3 +23,11 @@
 	vertical-align: top;
 }
 
+.entry-content {
+	img {
+		&.alignleft, &.alignright, &.aligncenter { margin-bottom: 20px; }
+		&.alignleft { float: left; margin-right: 20px; }
+		&.alignright { float: right; margin-left: 20px; }
+		&.aligncenter { margin: 0 auto; }
+	}
+}
