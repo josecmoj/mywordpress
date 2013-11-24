@@ -81,3 +81,18 @@ else
 
 // Define shortcodes, if necessary.
 // require_once DIR_INCLUDES . 'shortcodes.php';
+
+// Load custom hooks, if necessary.
+// require_once DIR_INCLUDES . 'hooks.php';
+
+// Define ACF Options pages, if necessary.
+// if ( is_admin() )
+// {
+// 	// Advanced Custom Fields - Options pages
+// 	if ( function_exists('acf_add_options_sub_page') )
+// 	{
+// 		acf_set_options_page_title( 'Site Options' );
+		
+// 		acf_add_options_sub_page( 'General' );
+// 	}
+// }
