@@ -3,11 +3,71 @@ var Helpers = (function( $ ) {
 	
 	var helpers = function() {
 		defineJQueryExists();
-		
-		// Run the throttled resize event only if needed.
-		// defineThrottledResize();
+		defineEqualiseHeights();
+		defineThrottledResize();
 	};
 	
+	
+	/**
+	 * Defines a jQuery function that allows us to check if an element exists
+	 * and run a callback function if it exists.
+	 * 
+	 * @example
+	 * $( '#my-element' ).exists(function() {
+	 *     // Element exists, run my code.
+	 * });
+	 *
+	 * @return {void}
+	 */
+	var defineJQueryExists = function() {
+		$.fn.exists = function( callback ) {
+			var args = [].slice.call( arguments , 1 );
+			
+			if ( this.length ) callback.call( this , args );
+			
+			return this;
+		};
+	};
+	
+	/**
+	 * Defines a method to allow a parent element equalise the heights of
+	 * its child elements.
+	 * 
+	 * @example
+	 * <div data-equalise=".column">
+	 *     <div class=".column">...</div>
+	 *     <div class=".column">...</div>
+	 *     <div class=".column">...</div>
+	 * </div>
+	 *
+	 * @return {void}
+	 */
+	var defineEqualiseHeights = function() {
+		var run = function() {
+			$('[data-equalise]').each(function( i , e ) {
+				var $parent   = $(e),
+					$children = $parent.find( $parent.data('equalise') ),
+					highest   = 0;
+				
+				// Reset the heights so we can re-calculate the highest item.
+				$children.height( 'auto' );
+				
+				// Get the highest element.
+				$children.each(function( i , e ) {
+					var height = $(e).height();
+					
+					if ( height > highest ) highest = height;
+				});
+				
+				$children.height( highest );
+			});
+		};
+		
+		// Make this responsive and auto-adjust when the browser is resized.
+		$.subscribe( 'throttled-resize' , run );
+		
+		run();
+	};
 	
 	/**
 	 * Since the resize event on the Window object throws too many events,
@@ -28,29 +88,8 @@ var Helpers = (function( $ ) {
 			
 			timeout = setTimeout(function() {
 				$.publish( 'throttled-resize' );
-			}, 30);
+			}, 50);
 		});
-	};
-	
-	/**
-	 * Defines a jQuery function that allows us to check if an element exists
-	 * and run a callback function if it exists.
-	 * 
-	 * @example
-	 * $( '#my-element' ).exists(function() {
-	 *     // Element exists, run my code.
-	 * });
-	 *
-	 * @return object
-	 */
-	var defineJQueryExists = function() {
-		$.fn.exists = function( callback ) {
-			var args = [].slice.call( arguments , 1 );
-			
-			if ( this.length ) callback.call( this , args );
-			
-			return this;
-		};
 	};
 	
 	return helpers;
