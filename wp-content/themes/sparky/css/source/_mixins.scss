@@ -65,7 +65,7 @@
 @mixin icon-base {
 	@include position( relative , 2px 0 0 0 );
 	@include size( 16 );
-	background-image: url( $img + 'sprite.min.png' );
+	background-image: url( $img + 'sprite.png' );
 	display: inline-block;
 	margin-right: 5px;
 }
