@@ -80,11 +80,11 @@ class Assets {
 		$url         = $file['file'];
 		$conditional = $file['conditional'];
 		
-		if ( $conditional ) echo '<!--[if '. $conditional .']>';
+		if ( $conditional ) echo '<!--[if '. $conditional .']><!-->';
 		
 		echo $type == 'js' ? '<script src="'. $url .'"></script>' : '<link rel="stylesheet" href="'. $url .'">';
 		
-		if ( $conditional ) echo '<![endif]-->';
+		if ( $conditional ) echo '<!--<![endif]-->' . "\n";
 	}
 	
 	/**
