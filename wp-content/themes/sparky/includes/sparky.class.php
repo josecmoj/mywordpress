@@ -176,14 +176,14 @@ class Sparky {
 	
 	
 	/**
-	 * Retrieves the source for the feature image.
+	 * Retrieves the source for the featured image.
 	 *
 	 * @param  string $size
 	 * @param  mixed  $post_id passing null will retrieve the current post's ID.
 	 *
 	 * @return mixed           returns null or a string
 	 */
-	public static function feature_image( $size = 'full' , $post_id = null )
+	public static function featured_image( $size = 'full' , $post_id = null )
 	{
 		if ( !has_post_thumbnail( $post_id ) ) return null;
 		
