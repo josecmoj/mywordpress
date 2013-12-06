@@ -5,6 +5,7 @@ javascript_compressor: uglifier
 javascripts:
   wp-content/themes/sparky/js/main.src:
     - wp-content/themes/sparky/js/lib/tiny.pubsub.min.js
+    - wp-content/themes/sparky/js/lib/jquery.fitvids.js
     - wp-content/themes/sparky/js/modules/*.js
     - wp-content/themes/sparky/js/main.js
 
