@@ -1,10 +1,16 @@
 var Helpers = (function( $ ) {
 	'use strict';
 	
+	/**
+	 * Enables a few helpers that are used throughout the site.
+	 *
+	 * @return {void}
+	 */
 	var helpers = function() {
-		defineJQueryExists();
-		defineEqualiseHeights();
-		defineThrottledResize();
+		enableJQueryExists();
+		enableEqualiseHeights();
+		enableThrottledResize();
+		enableFitVids();
 	};
 	
 	
@@ -19,7 +25,7 @@ var Helpers = (function( $ ) {
 	 *
 	 * @return {void}
 	 */
-	var defineJQueryExists = function() {
+	var enableJQueryExists = function() {
 		$.fn.exists = function( callback ) {
 			var args = [].slice.call( arguments , 1 );
 			
@@ -42,7 +48,7 @@ var Helpers = (function( $ ) {
 	 *
 	 * @return {void}
 	 */
-	var defineEqualiseHeights = function() {
+	var enableEqualiseHeights = function() {
 		var run = function() {
 			$('[data-equalise]').each(function( i , e ) {
 				var $parent   = $(e),
@@ -80,7 +86,7 @@ var Helpers = (function( $ ) {
 	 * 
 	 * @return {void}
 	 */
-	var defineThrottledResize = function() {
+	var enableThrottledResize = function() {
 		var timeout;
 		
 		$( window ).on( 'resize' , function( event ) {
@@ -90,6 +96,15 @@ var Helpers = (function( $ ) {
 				$.publish( 'throttled-resize' );
 			}, 50);
 		});
+	};
+	
+	/**
+	 * Enables the fitVids plugin that makes iframes responsive.
+	 *
+	 * @return {void}
+	 */
+	var enableFitVids = function() {
+		$( 'iframe' ).parent().fitVids();
 	};
 	
 	return helpers;
