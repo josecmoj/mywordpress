@@ -12,12 +12,12 @@
 	<?php wp_head(); ?>
 	
 	<!--
-	<link rel="icon" type="image/png" href="">
-	<link rel="apple-touch-icon" type="image/png" href="">
-	<link rel="apple-touch-icon" type="image/png" href="" sizes="114x114">
-	<link rel="apple-touch-icon" type="image/png" href="" sizes="72x72">
-	<link rel="apple-touch-icon" type="image/png" href="" sizes="144x144">
-	<link rel="shortcut icon" href="">
+	<link rel="icon" type="image/png" href="<?= img('assets/favicon_64.png') ?>" />
+	<link rel="apple-touch-icon" type="image/png" href="<?= img('assets/favicon_57.png') ?>" />
+	<link rel="apple-touch-icon" type="image/png" href="<?= img('assets/favicon_114.png') ?>" sizes="114x114" />
+	<link rel="apple-touch-icon" type="image/png" href="<?= img('assets/favicon_72.png') ?>" sizes="72x72" />
+	<link rel="apple-touch-icon" type="image/png" href="<?= img('assets/favicon_144.png') ?>" sizes="144x144" />
+	<link rel="shortcut icon" href="<?= img('assets/favicon.ico') ?>">
 	-->
 	
 	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
