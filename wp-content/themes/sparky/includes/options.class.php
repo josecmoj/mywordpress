@@ -29,11 +29,24 @@ class Options {
 		return self::$cache[ $key ];
 	}
 	
-	
-	public static function admin_email()
+	/**
+	 * Magic call to simplify loading of options and caching them.
+	 * 
+	 * @example
+	 * To load a value from the Options page, we use the following syntax:
+	 *     Options::admin_email();
+	 * The above expects a custom field field-name to be called 'admin_email'.
+	 * 
+	 * @param  string $method Name of the custom field, as saved in the ACF backend.
+	 * @param  array $args    Array of arguments - will not be used in this case.
+	 *
+	 * @return mixed
+	 */
+	public static function __callStatic( $method , $args )
 	{
-		return self::_cached( 'admin_email' , function() {
-			return get_field( 'admin_email' , 'options' );
+		return self::_cached( $method , function() use( $method )
+		{
+			return get_field( $method , 'options' );
 		});
 	}
 	
