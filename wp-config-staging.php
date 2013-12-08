@@ -20,7 +20,7 @@ return array(
 	'SMTP_HOST' => '',
 	'SMTP_USER' => '',
 	'SMTP_PASS' => '',
-	'SMTP_PORT' => '',
+	'SMTP_PORT' => 587,
 	'SMTP_AUTH' => true,
 	
 	// Do not allow plugins/themes to be updated/installed.
