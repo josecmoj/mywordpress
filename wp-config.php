@@ -32,6 +32,7 @@ switch ( $_SERVER['SERVER_NAME'] )
 	
 	// Production.
 	case 'PRODUCTION SITE SERVER NAME: website.com':
+	case 'PRODUCTION SITE SERVER NAME: www.website.com':
 		$environment_config = require 'wp-config-production.php';
 		break;
 	
