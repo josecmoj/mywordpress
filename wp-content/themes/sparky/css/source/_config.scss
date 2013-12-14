@@ -22,6 +22,8 @@ $colour-primary:   #BADA55;
 $colour-secondary: #B00B1E;
 
 $colour-body: #333;
+$colour-link: $colour-primary;
+$colour-link-hover: $colour-secondary;
 
 
 // Directories - gotta use absolute URLs, relative URLs come out wrong when compiling.
