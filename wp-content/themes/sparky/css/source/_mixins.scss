@@ -77,3 +77,21 @@
 	@if $height { height: $height; }
 	@if $nudge  { @include position( relative , $nudge ); }
 }
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Font mixin
+|--------------------------------------------------------------------------
+| 
+| Simple font mixin that will automatically sets the line-height. Also
+| allows us to set the colour at the same time.
+| 
+*/
+@mixin font( $weight , $size , $family , $colour: false ) {
+	$lh: $size * 1.3;
+	
+	@if $colour { color: $colour; }
+	font: $weight #{$size}/#{$lh} $family;
+}

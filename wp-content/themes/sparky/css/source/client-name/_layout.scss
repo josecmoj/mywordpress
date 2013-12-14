@@ -12,8 +12,8 @@
 // Layout and grid.
 .container {
 	@include outer-container;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: $container-padding;
+	padding-right: $container-padding;
 	position: relative;
 }
 

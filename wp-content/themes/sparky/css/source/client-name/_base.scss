@@ -12,6 +12,12 @@
 *, *:before, *:after { @include box-sizing( border-box ); }
 
 
+body {
+	background: white;
+	@include font( normal , 16px , #{$font-primary, $helvetica} , $colour-body );
+}
+
+
 // Specific grid styling for the main content and sidebar elements.
 #content {
 	@include span-columns( 8 of 12 , table );
@@ -23,6 +29,7 @@
 	vertical-align: top;
 }
 
+// WordPress image alignment.
 .entry-content {
 	img {
 		&.alignleft, &.alignright, &.aligncenter { margin-bottom: 20px; }
@@ -31,3 +38,4 @@
 		&.aligncenter { margin: 0 auto; }
 	}
 }
+
