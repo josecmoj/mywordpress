@@ -18,14 +18,23 @@ body {
 }
 
 
+// Set the to behave as a table, that way when #content or #sidebar aren't wide enough
+// they'll remain at their correct sizes.
+#body {
+	display: table;
+	width: 100%;
+}
+
+
 // Specific grid styling for the main content and sidebar elements.
 #content {
-	@include span-columns( 8 of 12 , table );
+	@include span-columns( 8 of 12 );
 	vertical-align: top;
 }
 
 #sidebar {
-	@include span-columns( 4 of 12 , table );
+	@include span-columns( 4 of 12 );
+	@extend .omega;
 	vertical-align: top;
 }
 
