@@ -27,6 +27,6 @@ return array(
 	'DISALLOW_FILE_MODS' => false,
 	
 	// WordPress Debug mode.
-	'WP_DEBUG' => true,
+	'WP_DEBUG' => false,
 	
 );
