@@ -18,7 +18,7 @@ if ( function_exists('register_sidebar') )
 	
 	foreach( $sidebars as $sidebar )
 	{
-		register_sidebar( $sidebar + $sidebar_defaults );
+		register_sidebar( array_merge( $sidebar , $sidebar_defaults ) );
 	}
 }
 

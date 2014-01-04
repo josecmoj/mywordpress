@@ -35,4 +35,37 @@
 	</script>
 	-->
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class() ?>>
+	
+	<div class="container">
+		<header id="header">
+			<hgroup>
+				<h1><?php echo get_bloginfo('name') ?></h1>
+				<h2><?php echo get_bloginfo('description') ?></h2>
+			</hgroup>
+		</header>
+	</div>
+	
+	<div class="container">
+		<section id="body">
+			<div id="content" role="main">
+				<?= $this->child() ?>
+			</div>
+			
+			<aside id="sidebar" role="complementary">
+				<?= $this->insert( 'partials::sidebar' ) ?>
+			</aside>
+		</section>
+	</div>
+	
+	<div class="container">
+		<footer id="footer">
+			Copyright &copy; <?= date('Y') ?>. All rights reserved.
+		</footer>
+	</div>
+	
+	
+	<?php Assets::js() ?>
+	
+</body>
+</html>

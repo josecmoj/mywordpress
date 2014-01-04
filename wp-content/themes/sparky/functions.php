@@ -1,25 +1,12 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Functions (What is this file?)
 |--------------------------------------------------------------------------
 | 
 | This file is automatically loaded by WordPress and allows us to do quite
-| a bit of awesome things. Such as override some functionality, add new
+| a bit of awesome things. Such as override default functionality, add new
 | features, new image sizes, new post types and a lot more.
-| 
-*/
-
-
-/*
-|--------------------------------------------------------------------------
-| Includes
-|--------------------------------------------------------------------------
-| 
-| Let's load the files we need from our 'includes' directory.
-| You can comment out any file that you do not need. None of these files
-| are absolutely required.
 | 
 */
 
@@ -29,6 +16,23 @@ define( 'DIR_INCLUDES' , $current_dir . 'includes/' );
 define( 'DIR_THEME'    , get_stylesheet_directory_uri() . '/' );
 define( 'DIR_PARTIALS' , $current_dir . '_partials/' );
 
+
+/*
+|--------------------------------------------------------------------------
+| Template Handler - overrides WP templating
+|--------------------------------------------------------------------------
+| 
+| The template handler will allow us to use the Plates PHP template
+| library to handle all our views.
+| Right before a view is rendered (such as page.php, single.php, etc)
+| we take over and let Plates render the views.
+| 
+| Comment out the line below to revert to default WordPress templating.
+| 
+*/
+require_once DIR_INCLUDES . 'template-handler.class.php';
+
+// Core helpers and classes for our Sparky theme.
 require_once DIR_INCLUDES . 'helpers.php';
 require_once DIR_INCLUDES . 'sparky.class.php';
 require_once DIR_INCLUDES . 'assets.class.php';
