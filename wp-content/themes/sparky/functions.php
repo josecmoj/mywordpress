@@ -74,7 +74,7 @@ else
 
 
 // Load some additional custom post types.
-// require_once DIR_INCLUDES . 'custom_post_types.php';
+// require_once DIR_INCLUDES . 'custom-post-types.php';
 
 // Define sidebars, if necessary.
 // require_once DIR_INCLUDES . 'sidebars.php';
