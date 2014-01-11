@@ -728,6 +728,14 @@ dl dd {
 
 /*
 |--------------------------------------------------------------------------
+| Breakpoints
+|--------------------------------------------------------------------------
+| 
+| Define all the responsive breakpoints here.
+| 
+*/
+/*
+|--------------------------------------------------------------------------
 | Client file
 |--------------------------------------------------------------------------
 | 
@@ -763,8 +771,8 @@ body {
 }
 
 #content {
-  display: block;
   float: left;
+  display: block;
   margin-right: 2.35765%;
   width: 65.88078%;
   vertical-align: top;
@@ -774,8 +782,8 @@ body {
 }
 
 #sidebar {
-  display: block;
   float: left;
+  display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
   vertical-align: top;
@@ -842,8 +850,8 @@ body {
 }
 
 .column-half {
-  display: block;
   float: left;
+  display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
 }
@@ -852,8 +860,8 @@ body {
 }
 
 .column-third {
-  display: block;
   float: left;
+  display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
 }
@@ -862,8 +870,8 @@ body {
 }
 
 .column-two-thirds {
-  display: block;
   float: left;
+  display: block;
   margin-right: 2.35765%;
   width: 65.88078%;
 }
@@ -872,8 +880,8 @@ body {
 }
 
 .column-quarter {
-  display: block;
   float: left;
+  display: block;
   margin-right: 2.35765%;
   width: 23.23176%;
 }
@@ -882,8 +890,8 @@ body {
 }
 
 .column-fifth {
-  display: block;
   float: left;
+  display: block;
   margin-right: 2.35765%;
   width: 18.11388%;
 }
@@ -907,52 +915,32 @@ body {
 
 .column-half-table {
   display: table-cell;
-  padding-right: 2.35765%;
-  width: 51.17883%;
-}
-.column-half-table:last-child {
-  width: 48.82117%;
-  padding-right: 0;
+  padding-right: 1.96471%;
+  width: 50.78588%;
 }
 
 .column-third-table {
   display: table-cell;
-  padding-right: 2.35765%;
-  width: 34.11922%;
-}
-.column-third-table:last-child {
-  width: 31.76157%;
-  padding-right: 0;
+  padding-right: 1.76824%;
+  width: 33.5298%;
 }
 
 .column-two-thirds-table {
   display: table-cell;
-  padding-right: 2.35765%;
-  width: 68.23843%;
-}
-.column-two-thirds-table:last-child {
-  width: 65.88078%;
-  padding-right: 0;
+  padding-right: 2.06295%;
+  width: 67.94373%;
 }
 
 .column-quarter-table {
   display: table-cell;
-  padding-right: 2.35765%;
-  width: 25.58941%;
-}
-.column-quarter-table:last-child {
-  width: 23.23176%;
-  padding-right: 0;
+  padding-right: 1.57177%;
+  width: 24.80353%;
 }
 
 .column-fifth-table {
   display: table-cell;
-  padding-right: 2.35765%;
-  width: 20.47153%;
-}
-.column-fifth-table:last-child {
-  width: 18.11388%;
-  padding-right: 0;
+  padding-right: 1.3753%;
+  width: 19.48918%;
 }
 
 .column-half-table,
@@ -1261,31 +1249,31 @@ ul.table > li > a, ol.table > li > a {
   vertical-align: bottom;
 }
 
-@media screen and (min-width: new-breakpoint(max-width 640px 12)) {
+@media screen and (max-width: 640px) {
   .hide-on-small-screen {
     display: none !important;
   }
 }
 
-@media screen and (min-width: new-breakpoint(min-width 641px max-width 767px 12)) {
+@media screen and (min-width: 641px) and (max-width: 767px) {
   .hide-on-mobile {
     display: none !important;
   }
 }
 
-@media screen and (min-width: new-breakpoint(min-width 768px max-width 1023px 12)) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .hide-on-tablet {
     display: none !important;
   }
 }
 
-@media screen and (min-width: new-breakpoint(max-width 767px 12)) {
+@media screen and (max-width: 767px) {
   .hide-on-mobile-down {
     display: none !important;
   }
 }
 
-@media screen and (min-width: new-breakpoint(max-width 1023px 12)) {
+@media screen and (max-width: 1023px) {
   .hide-on-tablet-down {
     display: none !important;
   }
@@ -1294,7 +1282,7 @@ ul.table > li > a, ol.table > li > a {
 .show-on-small-screen, .show-on-handheld {
   display: none !important;
 }
-@media screen and (min-width: new-breakpoint(max-width 640px 12)) {
+@media screen and (max-width: 640px) {
   .show-on-small-screen, .show-on-handheld {
     display: inherit !important;
   }
@@ -1303,7 +1291,7 @@ ul.table > li > a, ol.table > li > a {
 .show-on-mobile, .show-on-handheld {
   display: none !important;
 }
-@media screen and (min-width: new-breakpoint(min-width 641px max-width 767px 12)) {
+@media screen and (min-width: 641px) and (max-width: 767px) {
   .show-on-mobile, .show-on-handheld {
     display: inherit !important;
   }
@@ -1312,7 +1300,7 @@ ul.table > li > a, ol.table > li > a {
 .show-on-tablet, .show-on-handheld {
   display: none !important;
 }
-@media screen and (min-width: new-breakpoint(min-width 768px max-width 1023px 12)) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .show-on-tablet, .show-on-handheld {
     display: inherit !important;
   }
