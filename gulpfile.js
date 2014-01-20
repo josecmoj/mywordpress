@@ -20,11 +20,11 @@ gulp.task( 'styles' , function() {
 });
 
 gulp.task( 'scripts' , function() {
-	gulp.src( assets + 'js/**' )
+	gulp.src([ assets + 'js/*' , assets + 'js/libs/**' , assets + 'js/modules/**' ])
 		.pipe( concat( 'main.src.js' ) )
 		.pipe( gulp.dest( theme + 'js/' ) );
 	
-	gulp.src( assets + 'js/**' )
+	gulp.src([ assets + 'js/*' , assets + 'js/libs/**' , assets + 'js/modules/**' ])
 		.pipe( uglify() )
 		.pipe( concat( 'main.min.js' ) )
 		.pipe( gulp.dest( theme + 'js/' ) );
