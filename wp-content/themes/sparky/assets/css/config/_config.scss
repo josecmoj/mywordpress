@@ -26,8 +26,8 @@ $colour-link: $colour-primary;
 $colour-link-hover: $colour-secondary;
 
 
-// Directories - gotta use absolute URLs, relative URLs come out wrong when compiling.
-$img: '/wp-content/themes/sparky/img/';
+// Directories - define a relative path to the images directory.
+$img: '../img/';
 
 
 $container-padding: 30px;
