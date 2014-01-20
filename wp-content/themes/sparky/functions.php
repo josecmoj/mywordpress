@@ -50,7 +50,7 @@ Sparky::init();
 if ( WP_ENV === 'local' )
 {
 	// JS.
-	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js' , 0 , 'lt IE 9' );
+	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js' , 0 , 'lt IE 9' );
 	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js' , 0 , 'gte IE 9' );
 	Assets::add( DIR_THEME . 'js/main.src.js' , 1 );
 	
@@ -60,7 +60,7 @@ if ( WP_ENV === 'local' )
 else
 {
 	// JS.
-	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' , 0 , 'lt IE 9' );
+	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' , 0 , 'lt IE 9' );
 	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js' , 0 , 'gte IE 9' );
 	Assets::add( DIR_THEME . 'js/main.min.js' , 1 );
 	
