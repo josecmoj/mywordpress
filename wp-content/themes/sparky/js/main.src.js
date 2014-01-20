@@ -1,7 +1,12 @@
-/* Tiny Pub/Sub - v0.7.0 - 2013-01-29
-* https://github.com/cowboy/jquery-tiny-pubsub
-* Copyright (c) 2013 "Cowboy" Ben Alman; Licensed MIT */
-(function(n){var u=n({});n.subscribe=function(){u.on.apply(u,arguments)},n.unsubscribe=function(){u.off.apply(u,arguments)},n.publish=function(){u.trigger.apply(u,arguments)}})(jQuery);
+// Triggered when the DOM is ready.
+$(function() {
+	
+	// Load the helpers.
+	var helpers = new Helpers();
+	
+	// DOM is ready... do yer thang!
+	
+});
 /*global jQuery */
 /*jshint multistr:true browser:true */
 /*!
@@ -77,6 +82,31 @@
 // Works with either jQuery or Zepto
 })( window.jQuery || window.Zepto );
 
+/*
+ * jQuery Tiny Pub/Sub
+ * https://github.com/cowboy/jquery-tiny-pubsub
+ *
+ * Copyright (c) 2013 "Cowboy" Ben Alman
+ * Licensed under the MIT license.
+ */
+
+(function($) {
+
+  var o = $({});
+
+  $.subscribe = function() {
+    o.on.apply(o, arguments);
+  };
+
+  $.unsubscribe = function() {
+    o.off.apply(o, arguments);
+  };
+
+  $.publish = function() {
+    o.trigger.apply(o, arguments);
+  };
+
+}(jQuery));
 var Helpers = (function( $ ) {
 	'use strict';
 	
@@ -188,12 +218,3 @@ var Helpers = (function( $ ) {
 	
 	return helpers;
 })( jQuery );
-// Triggered when the DOM is ready.
-$(function() {
-	
-	// Load the helpers.
-	var helpers = new Helpers();
-	
-	// DOM is ready... do yer thang!
-	
-});

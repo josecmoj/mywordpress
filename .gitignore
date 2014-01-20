@@ -1,4 +1,5 @@
 .sass-cache
+node_modules/*
 wp-content/uploads/*
 sitemap.xml
 sitemap.xml.gz

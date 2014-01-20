@@ -3,16 +3,16 @@
 // All the files should be in the 'scss' directory.
 // --------------------------------------------------------------------------------
 
-@import "source/config",
-		"source/mixins",
+@import "libs/bourbon/bourbon",
+		"libs/bitters/bitters",
+		"libs/neat/neat",
 		
-		"source/libs/normalize",
-		"source/libs/bourbon/bourbon",
-		"source/libs/neat/neat",
-		"source/libs/bitters/bitters",
+		"config/config",
+		"config/mixins",
 		
-		"source/breakpoints",
+		"libs/normalize",
+		"config/breakpoints",
 		
-		"source/plugins/_plugins",
+		"plugins/_plugins",
 		
-		"source/client-name/_client-name";
+		"client/_client";

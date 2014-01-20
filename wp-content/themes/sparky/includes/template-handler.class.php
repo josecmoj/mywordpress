@@ -104,14 +104,14 @@ class TemplateHandler
  */
 function use_plates_template( $template )
 {
-	$loader = new TemplateHandler();
+	$handler = new TemplateHandler();
 	
 	// Add the partials and templates folders to easily load the files in them.
-	$loader->engine->addFolder( 'partials' , TEMPLATEPATH . '/_partials' );
-	$loader->engine->addFolder( 'templates' , TEMPLATEPATH . '/_templates' );
+	$handler->engine->addFolder( 'partials' , TEMPLATEPATH . '/_partials' );
+	$handler->engine->addFolder( 'templates' , TEMPLATEPATH . '/_templates' );
 	
 	// Finally - render the correct template.
-	$loader->render_template( $template );
+	$handler->render_template( $template );
 }
 
 add_action( 'template_include' , 'use_plates_template' );
