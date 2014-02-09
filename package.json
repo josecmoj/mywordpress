@@ -1,10 +1,10 @@
 {
   "devDependencies": {
-    "gulp-concat": "~2.1.7",
-    "gulp-uglify": "~0.2.1",
     "gulp": "~3.5.2",
-    "gulp-util": "~2.2.14",
     "gulp-ruby-sass": "~0.3.0",
-    "gulp-notify": "~0.4.1"
+    "gulp-uglify": "~0.2.1",
+    "gulp-concat": "~2.1.7",
+    "gulp-notify": "~0.4.1",
+    "watchr": "~2.4.11"
   }
 }
