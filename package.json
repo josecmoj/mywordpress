@@ -1,26 +1,10 @@
 {
-  "name": "MyWordPress",
-  "version": "0.0.0",
-  "description": "Pimped-out WordPress bootstrap.",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/maikeldaloo/mywordpress.git"
-  },
-  "author": "Maikel D",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/maikeldaloo/mywordpress/issues"
-  },
-  "homepage": "https://github.com/maikeldaloo/mywordpress",
   "devDependencies": {
     "gulp-concat": "~2.1.7",
-    "gulp-uglify": "~0.1.0",
-    "gulp": "~3.4.0",
-    "gulp-util": "~2.2.12",
-    "gulp-ruby-sass": "~0.2.0"
+    "gulp-uglify": "~0.2.1",
+    "gulp": "~3.5.2",
+    "gulp-util": "~2.2.14",
+    "gulp-ruby-sass": "~0.3.0",
+    "gulp-notify": "~0.4.1"
   }
 }
