@@ -1,5 +1,17 @@
-# protect wpconfig.php
+# Protect WordPress config files.
 <files wp-config.php>
+	order allow,deny
+	deny from all
+</files>
+<files wp-config-local.php>
+	order allow,deny
+	deny from all
+</files>
+<files wp-config-staging.php>
+	order allow,deny
+	deny from all
+</files>
+<files wp-config-production.php>
 	order allow,deny
 	deny from all
 </files>
