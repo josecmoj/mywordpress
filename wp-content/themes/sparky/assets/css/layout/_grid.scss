@@ -1,0 +1,19 @@
+.container {
+	@include outer-container;
+	padding-left: $container-padding;
+	padding-right: $container-padding;
+	position: relative;
+}
+
+
+.row { @include row; }
+
+
+.column-half       { @include span-columns( 6 of 12 ); }
+.column-third      { @include span-columns( 4 of 12 ); }
+.column-two-thirds { @include span-columns( 8 of 12 ); }
+.column-quarter    { @include span-columns( 3 of 12 ); }
+.column-fifth      { @include span-columns( 2.4 of 12 ); }
+
+
+.column-last { @include omega; }
