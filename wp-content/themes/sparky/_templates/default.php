@@ -38,7 +38,7 @@
 <body <?php body_class() ?>>
 	
 	<div class="container">
-		<header id="header">
+		<header class="layout-header">
 			<hgroup>
 				<h1><?php echo get_bloginfo('name') ?></h1>
 				<h2><?php echo get_bloginfo('description') ?></h2>
@@ -47,19 +47,19 @@
 	</div>
 	
 	<div class="container">
-		<section id="body">
-			<div id="content" role="main">
+		<div class="layout-body">
+			<div class="layout-content" role="main">
 				<?= $this->child() ?>
 			</div>
 			
-			<aside id="sidebar" role="complementary">
+			<aside class="layout-sidebar" role="complementary">
 				<?= $this->insert( 'partials::sidebar' ) ?>
 			</aside>
-		</section>
+		</div>
 	</div>
 	
 	<div class="container">
-		<footer id="footer">
+		<footer class="layout-footer">
 			Copyright &copy; <?= date('Y') ?>. All rights reserved.
 		</footer>
 	</div>
