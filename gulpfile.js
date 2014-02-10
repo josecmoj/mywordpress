@@ -1,4 +1,6 @@
-var gulp   = require( 'gulp' ),
+var exec   = require( 'child_process' ).exec,
+	gulp   = require( 'gulp' ),
+	gutil  = require( 'gulp-util' ),
 	concat = require( 'gulp-concat' ),
 	sass   = require( 'gulp-ruby-sass' ),
 	uglify = require( 'gulp-uglify' ),
@@ -10,6 +12,14 @@ var theme  = 'wp-content/themes/sparky/',
 	assets = theme + 'assets/';
 
 gulp.task( 'styles' , function() {
+	var errorHandler = function( error ) {
+		gutil.beep();
+		console.log( gutil.colors.red( error.message ) );
+		
+		// For Mac only, ignored on other platforms.
+		exec( 'say stylesheet compile error' );
+	};
+	
 	gulp.src( assets + 'css/*.scss' )
 		.pipe( sass({ style: 'expanded' }) )
 		.pipe( concat( 'main.src.css' ) )
@@ -17,6 +27,7 @@ gulp.task( 'styles' , function() {
 	
 	gulp.src( assets + 'css/*.scss' )
 		.pipe( sass({ style: 'compressed' }) )
+			.on( 'error' , errorHandler )
 		.pipe( concat( 'main.min.css' ) )
 		.pipe( gulp.dest( theme + 'css/' ) )
 		.pipe( notify({ title: 'Stylesheets Compiled' , message: 'Stylesheets have been compiled successfully.' }) );
