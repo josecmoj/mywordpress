@@ -21,6 +21,10 @@
 	Deny from all
 </Files>
 
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{HTTP_HOST} ^local-site\.dev$
+# RewriteRule ^.*/(uploads/.*)$ http://remote-site.com/wp-content/$1 [L,R=301,NC]
+
 # BEGIN WordPress
 	<IfModule mod_rewrite.c>
 	RewriteEngine On
