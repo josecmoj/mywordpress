@@ -1,0 +1,17 @@
+/*
+|--------------------------------------------------------------------------
+| Breakpoints
+|--------------------------------------------------------------------------
+| 
+| Define all the responsive breakpoints here.
+| 
+*/
+
+$large-screen: new-breakpoint( min-width 1200px 12 );
+$desktop:      new-breakpoint( min-width 1024px max-width 1199px 12 );
+$tablet:       new-breakpoint( min-width 768px max-width 1023px 12 );
+$mobile:       new-breakpoint( min-width 641px max-width 767px 12 );
+$small-screen: new-breakpoint( max-width 640px 12 );
+
+$tablet-down:  new-breakpoint( max-width 1023px 12 );
+$mobile-down:  new-breakpoint( max-width 767px 12 );
