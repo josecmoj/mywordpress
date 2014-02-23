@@ -87,11 +87,15 @@
 | 
 | Simple font mixin that will automatically set the line-height. Also
 | allows us to set the colour at the same time.
+| This allows us to override the default base-line-height.
 | 
 */
-@mixin font( $weight , $size , $family , $colour: false ) {
-	$lh: $size * $base-line-height;
+@mixin font( $weight , $size , $family , $colour: false , $lh-multiplier: false ) {
+	@if not $lh-multiplier { $lh-multiplier: $base-line-height; }
+	
+	$lh: $size * $lh-multiplier;
 	
 	@if $colour { color: $colour; }
+	
 	font: $weight #{$size}/#{$lh} $family;
 }
