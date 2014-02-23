@@ -22,8 +22,8 @@ $colour-primary:   #BADA55;
 $colour-secondary: #B00B1E;
 
 $colour-body: #333;
-$colour-link: $colour-primary;
-$colour-link-hover: $colour-secondary;
+$colour-links: $colour-primary;
+$colour-links-hover: darken( $colour-links , 6 );
 
 
 // Directories - define a relative path to the images directory.
