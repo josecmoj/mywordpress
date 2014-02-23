@@ -16,6 +16,8 @@ $debug: true;
 // Fonts.
 $font-primary: 'my-custom-font';
 
+$base-font-size: 16px;
+$base-line-height: 1.3; // This is multiplied by the base-font-size value.
 
 // Global colour declarations.
 $colour-primary:   #BADA55;

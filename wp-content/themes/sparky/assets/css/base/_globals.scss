@@ -6,7 +6,7 @@
 
 body {
 	background: white;
-	@include font( normal , 16px , #{$font-primary, $helvetica} , $colour-body );
+	@include font( normal , $base-font-size , #{$font-primary, $helvetica} , $colour-body );
 }
 
 
