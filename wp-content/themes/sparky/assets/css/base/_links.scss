@@ -4,7 +4,7 @@ a {
 	text-decoration: underline;
 	
 	&:hover {
-		color: $colour-secondary;
+		color: darken( $colour-primary , 5 );
 		text-decoration: none;
 	}
 }

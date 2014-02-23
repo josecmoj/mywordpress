@@ -1,19 +1,38 @@
+/*
+|--------------------------------------------------------------------------
+| Grid
+|--------------------------------------------------------------------------
+| 
+| This file will input the correct settings for Gridle to generate our CSS
+| grid for us.
+| 
+| Documentation for Gridle can be found at http://gridle.org/documentation
+| 
+*/
+
+// Set the grid defaults.
+$gridle-columns-count: 12;
+$gridle-gutter-width: 20px;
+
+// Do not support IE7.
+$gridle-ie7-support: false;
+
+// Define what classes to generate.
+$gridle-generate-push-classes: false;
+$gridle-generate-pull-classes: false;
+$gridle-generate-prefix-classes: false;
+$gridle-generate-suffix-classes: false;
+$gridle-generate-helpers-classes: true;
+
+// Define breakpoints, or states, as Gridle calls them.
+@include gridle_register_state( 'mobile' , null , 767px );
+@include gridle_register_state( 'tablet' , 768px , 1024px );
+
+// Go ahead and generate our classes for us.
+@include gridle_generate_classes();
+
+// Set a max-width on the container.
 .container {
-	@include outer-container;
-	padding-left: $container-padding;
-	padding-right: $container-padding;
-	position: relative;
+	margin: 0 auto;
+	max-width: 1200px;
 }
-
-
-.row { @include row; }
-
-
-.column-half       { @include span-columns( 6 of 12 ); }
-.column-third      { @include span-columns( 4 of 12 ); }
-.column-two-thirds { @include span-columns( 8 of 12 ); }
-.column-quarter    { @include span-columns( 3 of 12 ); }
-.column-fifth      { @include span-columns( 2.4 of 12 ); }
-
-
-.column-last { @include omega; }
