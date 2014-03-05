@@ -21,12 +21,24 @@
 	Deny from all
 </Files>
 
+# Block the include-only files.
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^wp-admin/includes/ - [F,L]
+	RewriteRule !^wp-includes/ - [S=3]
+	RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+	RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+	RewriteRule ^wp-includes/theme-compat/ - [F,L]
+</IfModule>
+
+# Load uploads from a remote site instead of syncing them with your local machine.
 # RewriteCond %{REQUEST_FILENAME} !-f
 # RewriteCond %{HTTP_HOST} ^local-site\.dev$
 # RewriteRule ^.*/(uploads/.*)$ http://remote-site.com/wp-content/$1 [L,R=301,NC]
 
 # BEGIN WordPress
-	<IfModule mod_rewrite.c>
+<IfModule mod_rewrite.c>
 	RewriteEngine On
 	RewriteBase /
 	RewriteRule ^index\.php$ - [L]
