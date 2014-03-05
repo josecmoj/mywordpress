@@ -166,7 +166,7 @@ To delete a comment, just log in and view the post&#039;s comments. There you wi
 	
 	// Update some various options. http://codex.wordpress.org/Option_Reference.
 	update_option( 'timezone_string' , 'Australia/Sydney' );
-	update_option( 'start_of_week' , 0 );
+	update_option( 'start_of_week' , 1 ); // Monday
 	update_option( 'use_smilies' , 0 );
 	update_option( 'permalink_structure' , '/%postname%/' );
 	update_option( 'category_base' , '/category' );
