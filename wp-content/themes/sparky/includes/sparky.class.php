@@ -183,7 +183,7 @@ class Sparky {
 	 *
 	 * @return mixed           returns null or a string
 	 */
-	public static function featured_image( $size = 'full' , $post_id = null )
+	public static function feature_image( $size = 'full' , $post_id = null )
 	{
 		if ( !has_post_thumbnail( $post_id ) ) return null;
 		
