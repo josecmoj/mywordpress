@@ -81,7 +81,8 @@ class Sparky {
 		else if ( is_404() )      $title .= 'Error: page not found';
 		else                      $title .= wp_title( '' , false );
 		
-		$title .= ' | ' . get_bloginfo( 'name' );
+		if ( $title ) $title .= ' | ';
+		$title .= get_bloginfo( 'name' );
 		
 		if ( !$echo ) return $title;
 		
