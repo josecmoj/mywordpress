@@ -82,24 +82,37 @@ class Sparky {
 	
 	
 	/**
-	 * Outputs a generic description.both
-	 * Edit this as to your liking.
+	 * Outputs a generic description.
 	 */
 	public static function description( $echo = true )
 	{
 		// Maximum length of the meta description. Recommended: 155 characters.
 		$max_length = 155;
 		
-		$description = is_single() ? single_post_title( '' , false ) : get_bloginfo('name');
+		$description = '';
 		
-		// If a tagline/description has been set for the blog, we'll append it to our description.
-		$tagline = get_bloginfo( 'description' );
-		if ( $tagline ) {
-			$description .= " - $tagline";
+		// Get the tagline and excerpt.
+		$excerpt = get_the_excerpt();
+		
+		if ( is_home() )
+		{
+			$tagline = get_bloginfo( 'description' );
+			
+			if ( $tagline )      $description .= $tagline;
+			else if ( $excerpt ) $description .= $excerpt;
+		}
+		else
+		{
+			if ( $excerpt )      $description .= $excerpt;
+			else if ( $tagline ) $description .= $tagline;
 		}
 		
+		// Fallback if there is no excerpt or tagline.
+		if ( !$description ) $description .= is_single() ? single_post_title( '' , false ) : get_bloginfo( 'name' );
+		
 		// Keep the length of the description below the recommended maximum.
-		if ( strlen($description) > $max_length ) {
+		if ( strlen($description) > $max_length )
+		{
 			$description = substr( $description , 0 , $max_length-3 ) . '...';
 		}
 		
