@@ -66,13 +66,22 @@ class Sparky {
 	
 	
 	/**
-	 * Outputs a generic title.
-	 * Edit this as to your liking.
+	 * Outputs a meta title.
 	 */
 	public static function title( $echo = true )
 	{
-		$title = is_front_page() ? 'Home | ' : wp_title( '|' , false , 'right' );
-		$title .= get_bloginfo( 'name' );
+		$title = '';
+		
+		// Get the title depending on what we're viewing.
+		if      ( is_category() ) $title .= 'Category archive for "'. single_cat_title( '' , false ) .'"';
+		else if ( is_tag() )      $title .= 'Tag archive for "'. single_tag_title( '' , false ) .'"';
+		else if ( is_archive() )  $title .= wp_title( '', false ) . ' archive';
+		else if ( is_search() )   $title .= 'search for "'. esc_html( $s ); .'"';
+		else if ( is_home() )     $title .= get_bloginfo( 'name' );
+		else if ( is_404() )      $title .= 'Error: page not found';
+		else                      $title .= wp_title( '' , false );
+		
+		$title .= ' | ' . get_bloginfo( 'name' );
 		
 		if ( !$echo ) return $title;
 		
@@ -82,7 +91,7 @@ class Sparky {
 	
 	
 	/**
-	 * Outputs a generic description.
+	 * Outputs a meta description.
 	 */
 	public static function description( $echo = true )
 	{
