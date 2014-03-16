@@ -87,7 +87,7 @@ else
 // require_once DIR_INCLUDES . 'shortcodes.php';
 
 // Load custom hooks, if necessary.
-// require_once DIR_INCLUDES . 'hooks.php';
+require_once DIR_INCLUDES . 'hooks.php';
 
 // Define ACF Options pages, if necessary.
 // if ( is_admin() )
