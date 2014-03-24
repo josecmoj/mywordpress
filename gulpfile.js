@@ -1,12 +1,4 @@
-var exec       = require( 'child_process' ).exec,
-	gulp       = require( 'gulp' ),
-	gutil      = require( 'gulp-util' ),
-	concat     = require( 'gulp-concat' ),
-	sass       = require( 'gulp-ruby-sass' ),
-	uglify     = require( 'gulp-uglify' ),
-	notify     = require( 'gulp-notify' ),
-	livereload = require('gulp-livereload'),
-	watchr     = require( 'watchr' ),
+var exec       = require( 'child_process' ).exec, gulp       = require( 'gulp' ), gutil      = require( 'gulp-util' ), concat     = require( 'gulp-concat' ), sass       = require( 'gulp-ruby-sass' ), uglify     = require( 'gulp-uglify' ), notify     = require( 'gulp-notify' ), livereload = require('gulp-livereload'), watchr     = require( 'watchr' ),
 	path       = require( 'path' );
 
 var theme  = 'wp-content/themes/sparky/',
@@ -66,6 +58,8 @@ gulp.task( 'livereload' , function() {
  * call instead. Simple switch.
  */
 gulp.task( 'watch' , function() {
+	var timeout;
+	
 	watchr.watch({
 		path: theme,
 		catchupDelay: 100,
@@ -79,8 +73,12 @@ gulp.task( 'watch' , function() {
 				
 				if ( task ) gulp.start( task );
 				
-				// No matter what file changes, let's trigger livereload.
-				gulp.start( 'livereload' );
+				// No matter what file changes, let's trigger livereload, but throttle it
+				// so that it doesn't more than once every 2 seconds.
+				clearTimeout( timeout );
+				timeout = setTimeout(function() {
+					gulp.start( 'livereload' );
+				}, 2000);
 			}
 		}
 	});
