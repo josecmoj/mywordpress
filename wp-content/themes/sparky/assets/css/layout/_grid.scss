@@ -33,7 +33,7 @@ $gridle-generate-helpers-classes: true;
 
 // Set a max-width on the container.
 .container {
+	@include gridle_container;
 	margin: 0 auto;
 	max-width: 1200px;
-	overflow: hidden;
 }
