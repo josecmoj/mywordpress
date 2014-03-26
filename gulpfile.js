@@ -1,4 +1,12 @@
-var exec       = require( 'child_process' ).exec, gulp       = require( 'gulp' ), gutil      = require( 'gulp-util' ), concat     = require( 'gulp-concat' ), sass       = require( 'gulp-ruby-sass' ), uglify     = require( 'gulp-uglify' ), notify     = require( 'gulp-notify' ), livereload = require('gulp-livereload'), watchr     = require( 'watchr' ),
+var exec       = require( 'child_process' ).exec,
+	gulp       = require( 'gulp' ),
+	gutil      = require( 'gulp-util' ),
+	concat     = require( 'gulp-concat' ),
+	sass       = require( 'gulp-ruby-sass' ),
+	uglify     = require( 'gulp-uglify' ),
+	notify     = require( 'gulp-notify' ),
+	livereload = require('gulp-livereload'),
+	watchr     = require( 'watchr' ),
 	path       = require( 'path' );
 
 var theme  = 'wp-content/themes/sparky/',
