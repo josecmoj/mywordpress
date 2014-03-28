@@ -86,7 +86,7 @@ gulp.task( 'watch' , function() {
 				clearTimeout( timeout );
 				timeout = setTimeout(function() {
 					gulp.start( 'livereload' );
-				}, 500);
+				}, 2000);
 			}
 		}
 	});
