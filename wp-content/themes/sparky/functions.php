@@ -46,28 +46,12 @@ require_once DIR_INCLUDES . 'assets.class.php';
 Sparky::init();
 
 
-// Add the global assets required for our theme and define minified versions for staging/production.
-if ( WP_ENV === 'local' )
-{
-	// JS.
-	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js' , 0 , 'lt IE 9' );
-	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js' , 0 , 'gte IE 9' );
-	Assets::add( DIR_THEME . 'js/main.src.js' , 1 );
-	
-	// CSS.
-	Assets::add( DIR_THEME . 'css/main.src.css' , 0 );
-}
-else
-{
-	// JS.
-	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' , 0 , 'lt IE 9' );
-	Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js' , 0 , 'gte IE 9' );
-	Assets::add( DIR_THEME . 'js/main.min.js' , 1 );
-	
-	// CSS.
-	Assets::add( DIR_THEME . 'css/main.min.css' , 0 );
-}
+// Add the global assets required for our theme and set the order to a higher number so other scripts can be queued before these.
+Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' , 5 , 'lt IE 9' );
+Assets::add( '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js' , 5 , 'gte IE 9' );
 
+Assets::add( DIR_THEME . 'js/main.js' , 10 );
+Assets::add( DIR_THEME . 'css/main.css' , 5 );
 
 
 // Set custom image sizes for WordPress to resize when uploading new images.

@@ -19,17 +19,17 @@ class Assets {
 	 * 
 	 * @return boolean
 	 */
-	public static function add( $file , $order = 0 , $conditional = null )
+	public static function add( $file , $order , $conditional = null )
 	{
 		$extension = pathinfo( $file , PATHINFO_EXTENSION );
 		
 		switch ( $extension )
 		{
 			case 'js':
-				self::$assets['js'][] = array( 'file' => $file , 'order' => $order , 'conditional' => $conditional );
+				self::add_js( $file , $order , $conditional );
 				break;
 			case 'css':
-				self::$assets['css'][] = array( 'file' => $file , 'order' => $order , 'conditional' => $conditional );
+				self::add_css( $file , $order , $conditional );
 				break;
 			default:
 				return false;
@@ -37,6 +37,36 @@ class Assets {
 		}
 		
 		return true;
+	}
+	
+	/**
+	 * Manually adds a JS file. No auto-detection of file extension.
+	 * This is useful for libraries such as Google maps where there is no extension.
+	 *
+	 * @param string  $file
+	 * @param integer $order
+	 * @param boolean $conditional
+	 * 
+	 * @return boolean
+	 */
+	public static function add_js( $file , $order , $conditional = null )
+	{
+		self::$assets['js'][] = array( 'file' => $file , 'order' => $order , 'conditional' => $conditional );
+	}
+	
+	/**
+	 * Manually adds a CSS file. No auto-detection of file extension.
+	 * This is useful for libraries where there is no extension in the URL.
+	 *
+	 * @param string  $file
+	 * @param integer $order
+	 * @param boolean $conditional
+	 * 
+	 * @return boolean
+	 */
+	public static function add_css( $file , $order , $conditional = null )
+	{
+		self::$assets['css'][] = array( 'file' => $file , 'order' => $order , 'conditional' => $conditional );
 	}
 	
 	/**
